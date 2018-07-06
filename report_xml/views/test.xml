@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="test1_xml">
+        &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+        <t t-raw="0"/>
+            <checking>
+                <user t-foreach="docs" t-as="doc">
+                    <name t-esc="doc.name"/>
+                    <vat t-esc="doc.description"/>
+                </user>
+            </checking>
+       
+    </template>
+    <report id="test_xml"
+            name="report_xml.test1_xml"
+            string="Testing"
+            report_type="qweb-xml"
+            print_report_name="'Testing'"
+            file="test_xml.xml"
+            model="test.test"/>
+
+</odoo>
