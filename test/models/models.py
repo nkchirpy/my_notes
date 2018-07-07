@@ -41,14 +41,22 @@ class test(models.Model):
     
     @api.multi
     def test_button(self):
-
         dummy_file = open("test.xml","w")
+
         # HEADERS DECLARATION
-        auditfile = etree.Element("Audifile")
+        auditfile = etree.Element("Auditfile")
         header = etree.Element("header")
+        comp_name = self.env['res.company'].search_read([],['id','name'])
+        for keys,values in comp_name[0].items():
+            etree.SubElement(header,keys.title().replace("_","")).text = str(values)
+        
         company_address = etree.Element("CompanyAddress")
         master_file = etree.Element("Masterfile")
         customer = etree.Element("Customer")
+        cus = self.env['res.partner'].search_read([],['id','vat'])
+        for keys,values in cus[0].items():
+            etree.SubElement(customer,keys.title().replace("_","")).text = str(values)
+
         c_billing_address = etree.Element("BillingAddress")
         ship_to_address = etree.Element("ShipToAddress")
         supplier = etree.Element("Supplier")
@@ -66,22 +74,32 @@ class test(models.Model):
         master_file.append(supplier)
         supplier.append(s_billing_address)
         supplier.append(ship_from_address)
-        # self biil indicator has to come header
+        # self biil indicator tag has to come here
         master_file.append(product)
         auditfile.append(source_document)
         source_document.append(movement_of_goods)
         # HEADERS DECLARATION END HERE
 
-        # PASSING VALUES TO THE HEADERS
-        address = {"street_no":123,"street_name":"wall street","city":"New york"}
-        for key,value in address.items():
-            etree.SubElement(c_billing_address,key).text=str(value)
-        # PASSING VALUES TO THE HEADERS END HERE
+        
+        
+        res_company = self.env['res.company'].search_read([],['street', 'city', 'state_id','zip'])
+        res_company[0].pop('id')
+        for key,val in res_company[0].items():
+            etree.SubElement(company_address,key.title().replace("_","")).text=str(val)
+        
+        cus_add = self.env['res.partner'].search_read([],['type','=','contact','street','city','state_id','zip'])
+        cus_add[0].pop('id')
+        for i in cus_add:
+            for key,val in i.items():
+                etree.SubElement(c_billing_address,key.title().replace("_","")).text=str(val)
 
+        
+        
 
         format_it = etree.XML(etree.tostring(auditfile,pretty_print=True,xml_declaration=True))
         send_to_attach = self.prettify(format_it)
         print (send_to_attach)
+        err
         dummy_file.write(str(send_to_attach))
         dummy_file.close()
         r = ''
