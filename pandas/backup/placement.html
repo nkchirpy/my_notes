@@ -1,0 +1,1319 @@
+<head>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAavS6wKsU1ktHDuBpDAoQPkjxZ0gn06fs&amp;libraries=places"></script>
+    <style>
+        body {
+            box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            color: #777;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            font-family: "Muli", sans-serif !important;
+            height: 1%
+        }
+        label {
+            color: #222;
+            font-weight: 700;
+            font-size: inherit;
+            display: inline-block;
+            line-height: 1.3;
+            clear: both;
+        }
+        .filed-required{
+            color: #790000;
+            margin-left: 4px;
+        }
+        h4{
+            font-weight: 600;
+            font-family: "Muli", sans-serif;
+            font-size: 1.125em;
+            color: #555;
+            width: 100%;
+            margin-top: 0;
+            margin-bottom: .5em;
+            text-rendering: optimizeSpeed;
+        }
+        .input-width{
+            width: 58.3%;
+        }
+        .radio-group {
+            list-style: none;
+            margin: 0 0 8px;
+            line-height: 2;
+            padding: 0;
+        }
+
+        .radio {
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .input-margin-bottom {
+            margin-bottom: 20px;
+        }
+
+       
+
+        .text-area {
+            z-index: auto;
+            position: relative;
+            line-height: 24px;
+            font-size: 16px;
+            transition: none;
+            background: transparent !important;
+        }
+
+        .tab6_list {
+            width: 24%;
+            display: -moz-inline-stack;
+            display: inline-block;
+            margin: 0;
+            padding-right: 0px;
+            min-height: 28px;
+            vertical-align: top;
+            font-size: 72%;
+        }
+
+        .sf-btn {
+            position: relative;
+            display: inline-block;
+            background-color: #dd3333;
+            text-transform: uppercase;
+            font-size: .97em;
+            letter-spacing: .03em;
+            -ms-touch-action: none;
+            touch-action: none;
+            cursor: pointer;
+            font-weight: bolder;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid transparent;
+            vertical-align: middle;
+            border-radius: 0;
+            margin-top: 0;
+            margin-right: 1em;
+            text-shadow: none;
+            line-height: 2.4em;
+            min-height: 2.5em;
+            padding: 0 1.2em;
+            max-width: 100%;
+            transition: transform .3s, border .3s, background .3s, box-shadow .3s, opacity .3s, color .3s;
+            text-rendering: optimizeLegibility;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+
+        }
+        #tab2{
+            display: none;
+        }
+        #tab3{
+            display: none;
+        }
+        #tab4{
+            display: none;
+        }
+        #tab5{
+            display: none;
+        }
+        #tab6{
+            display: none;
+        }
+        #tab7{
+            display: none;
+        }
+        #tab8{
+            display: none;
+        }
+        .label_gender {
+        margin-left:-110%;
+        }
+  
+
+    @media only screen and (width: 526px){
+      .label_gender {
+            margin-left:5%;    
+            margin-top: -3%;
+            position:absolute; 
+    }
+    } 
+    @media only screen and (width: 720px){
+      .label_gender {
+            margin-left:4%;    
+            margin-top: -2%;
+            position:absolute; 
+    }
+    } 
+    </style>
+    <script>
+        function navigation(event){
+
+            var tabInfo = event.target.id
+            switch(tabInfo){
+                case 'tab_1_next':
+
+                   var next_tab =  document.getElementById('tab2')
+                   var current_tab = document.getElementById('tab1')
+                   var req1,req2,req3,req4;
+                   req1 = document.getElementById('input_1').value;
+                   req2 = document.getElementById('input_2').value;
+                   req3 = document.getElementById('input_3').value;
+                   req4 = document.getElementById('input_4').value;
+                   console.log("value",req1,req2,req3,req4)
+                   if(req1===''||req2===''||req3===''||req4===''){
+                        alert('Kindly fill the required fields')
+                   }else{
+                        next_tab.style.display = 'block';
+                        current_tab.style.display = 'none';
+                   }
+                   
+                   break;
+                case 'tab_2_next':
+                    var next_tab =  document.getElementById('tab3')
+                    var current_tab = document.getElementById('tab2')
+                    var req5,req6,radio_btn1,radio_btn2;
+                    req5 = document.getElementById('input_t21').value;
+                    req6 = document.getElementById('input_t22').value
+                    radio_btn1 = document.getElementById('input_t25').checked
+                    radio_btn2 = document.getElementById('input_t25').checked
+                    console.log("Radio",'1',radio_btn1,'2',radio_btn2)
+                    if(req5===''||req6==='' || radio_btn1 === 'true' || radio_btn2 === 'true'){
+                        alert('Kindly fill the required fields')
+                    }else{
+                        next_tab.style.display = 'block';
+                        current_tab.style.display = 'none';
+                    }
+                    break;
+                case 'tab_3_next':
+                    var next_tab =  document.getElementById('tab4')
+                    var current_tab = document.getElementById('tab3')
+                    next_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_4_next':
+                    var next_tab =  document.getElementById('tab5')
+                    var current_tab = document.getElementById('tab4')
+                    next_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_5_next':
+                    var next_tab =  document.getElementById('tab6')
+                    var current_tab = document.getElementById('tab5')
+                    next_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_6_next':
+                    var next_tab =  document.getElementById('tab7')
+                    var current_tab = document.getElementById('tab6')
+                    next_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_7_next':
+                    var next_tab =  document.getElementById('tab8')
+                    var current_tab = document.getElementById('tab7')
+                    next_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_8_next':
+                    // var next_tab =  document.getElementById('tab8')
+                    var current_tab = document.getElementById('tab8')
+                    // next_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_2_pre':
+                    var pre_tab =  document.getElementById('tab1')
+                    var current_tab = document.getElementById('tab2')
+                    pre_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_3_pre':
+                    var pre_tab =  document.getElementById('tab2')
+                    var current_tab = document.getElementById('tab3')
+                    pre_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_4_pre':
+                    var pre_tab =  document.getElementById('tab3')
+                    var current_tab = document.getElementById('tab4')
+                    pre_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_5_pre':
+                    var pre_tab =  document.getElementById('tab4')
+                    var current_tab = document.getElementById('tab5')
+                    pre_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_6_pre':
+                    var pre_tab =  document.getElementById('tab5')
+                    var current_tab = document.getElementById('tab6')
+                    pre_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_7_pre':
+                    var pre_tab =  document.getElementById('tab6')
+                    var current_tab = document.getElementById('tab7')
+                    pre_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_8_pre':
+                    var pre_tab =  document.getElementById('tab7')
+                    var current_tab = document.getElementById('tab8')
+                    pre_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                
+
+
+
+            }
+        }
+    </script>
+    <!-- <script src='/input-mask.js' /> -->
+</head>
+
+<body>
+    <div class="container" style="margin-top:7rem;">
+      <t t-if="not result">
+        
+
+        <form role="form" t-attf-action="/web/submit2{{ '?debug' if debug else '' }}" method="post" onclick="this.action = this.action + location.hash">
+          <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+          
+          <input type="hidden" id="record_identifier" name="record_identifier"/>
+            <div id="tab1" >
+                <h4>Please provide Case Manager's information:</h4>
+                
+                <div style="float:right">Page # 1 of 8</div>
+                <input type="hidden" name="record_identifier" class="form-control" />
+
+                <div class="form-group input-width">
+                    <label for="input_1">Case Manager's Full Name:</label>
+                    <span class="filed-required">*</span>
+                    <input type="text" class="form-control" id="input_1" name="case_manager_full_name" />
+                </div>
+                <div class="form-group input-width">
+                    <label for="input_2">Case Manager’s Phone Number:</label>
+                    <span class="filed-required">*</span>
+                    <input type="text" class="form-control" id="input_2" name="case_manager_phone_number" placeholder="(___) ___-____"/>
+                </div>
+                <div class="form-group input-width">
+                    <label for="input_3">Case Manager’s Email Address:</label>
+                    <span class="filed-required">*</span>
+                    <input type="email" class="form-control" id="input_3" name="case_manager_email_address" />
+                </div>
+                <div class="form-group input-width">
+                    <label for="input_4"> Your Institution’s Name:</label>
+                    <span class="filed-required">*</span>
+                    <input type="text" class="form-control" id="input_4" name="your_institutuion_name" />
+                </div>
+                <div>
+                    <div class="sf-btn" id="tab_1_next" onclick="navigation(event)">next</div>
+                </div>
+            </div>
+            <div id="tab2">
+                <h4>Please provide child information:</h4>
+                <div style="float:right;margin-top:-2%;">Page # 2 of 8</div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="input_t21">Child's First Name:</label>
+                            <span class="filed-required">*</span>
+                            <input type="text" class="form-control" id="input_t21" name="first_name" />
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="input_t22">Child's Last Name:</label>
+                            <span class="filed-required">*</span>
+                            <input type="text" class="form-control" id="input_t22" name="last_name" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="input_t23">SSN:</label>
+                            <input type="text" class="form-control" name="ssn" id="ssn_format" placeholder="___-__-____"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="input_t24">Contract State:</label>
+                            <input type="text" class="form-control" name="contract_state" id="input_t24" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="row">
+                                    <h3 style="color:black;">Gender</h3>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <input type="radio" name="gender" id="input_t25" value="female" class="radio"/>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <label for="input_t25" class="label_gender">Female</label>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <input type="radio" name="gender" id="input_t26" value="male" class="radio"/>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <label for="input_t26" class="label_gender">Male</label>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="input_t26">Is Person in the List?</label>
+                            <select name="is_person_in_the_list" id="input_t26" class="form-control">
+                                <option name="is_person_in_the_list" value="yes">Yes</option>
+                                <option name="is_person_in_the_list" value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                        <div class="sf-btn" id="tab_2_pre" onclick="navigation(event)">previous</div>
+                        <div class="sf-btn" id="tab_2_next" onclick="navigation(event)">next</div>
+                    </div>
+            </div>
+            <div id="tab3">
+                <h4>Please provide child information:</h4>
+               <div style="float:right;margin-top:-2%">Page # 3 of 8</div>
+               <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="input_t36">Medical Condition:</label>
+                            <div>
+                            <textarea name="medical_condition" id="input_t36" cols="124" rows="4" class="text-area"></textarea>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="input_31">Address</label>
+                            <input type="text" onFocus="geolocate()" id='autocomplete' class="form-control input-margin-bottom" placeholder="Enter a location" />
+                           
+                        </div>
+
+                    <div>
+                            
+                        <div class="row form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="street_number">Street No</label>
+                                <input type="text" name="street_no" class="form-control" id="street_number" />
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="street_address">Street Name</label>
+                                <input type="text" name="street_address" class="form-control" id='route' />
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+
+                        <div class="row form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="input_t36">City</label>
+                                <input type="text" name="city" id='locality' class="form-control"/>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="input_t36">State</label>
+                                <input type="text" name="state" id="administrative_area_level_1" class="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <div class="form-group row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <label for="input_t35">ZIP Code</label>
+                            <input type="text" name="zip_code" id='postal_code' class="form-control" />
+                            <input type="hidden" id='latitude'  name="address_lat" />
+                            <input type="hidden" id='longitude' name="address_long"/>
+                        </div>
+                    </div>
+                        
+                </div>
+
+
+
+
+
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                          <label for="input_37">School Address</label>
+                            <input type="text" name="" onFocus="geolocate()" id='autocomplete2' class="form-control input-margin-bottom" placeholder="Enter a location"/>
+                            
+                            
+                        </div>
+                        <div>
+                            
+                            <div class="row form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="street_number2">Street No</label>
+                                    <input type="text" name="school_street_no" id='street_number2' class="form-control" />
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="route2">Street Name</label>
+                                    <input type="text" name="school_street_address" id="route2" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="input_41">City</label>
+                                <input type="text" name="school_city" id='locality2' class="form-control" />
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="input_42">State</label>
+                                <input type="text" name="school_state" id="administrative_area_level_12" class="form-control" />
+                            </div>
+                        </div>
+                        
+                        <div class=" row form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="input_43">ZIP Code</label>
+                                <input type="text" name="school_zip_code" id='postal_code2' class="form-control input-margin-bottom" />
+                                <input type="hidden" id='latitude2' name="school_lat" />
+                                <input type="hidden" id='longitude2' name="school_long" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            
+
+
+                
+                    <div>
+                        <div class="sf-btn" id="tab_3_pre" onclick="navigation(event)">previous</div>
+                        <div class="sf-btn" id="tab_3_next" onclick="navigation(event)">next</div>
+                    </div>
+            
+
+        </div>
+            <div id="tab4">
+                <h4>Please provide child information:</h4>
+                <div style="float:right;margin-top:-2%">Page # 4 of 8</div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="input_41">Mother Address</label>
+                            <input type="text" name="" onFocus="geolocate()" id='autocomplete3' class="form-control" placeholder="Enter a location" />
+                            
+                            
+                        </div>
+                        <div>
+                            
+                            <div class="row form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="street_number3">Street No</label>
+                                    <input type="text" name="mother_street_no" id="street_number3" class="form-control" />
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="route3">Street Name</label>
+                                    <input type="text" name="mother_street_Address" id="route3" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+
+                            <div class="row form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="input_46">City</label>
+                                    <input type="text" name="mother_city" id='locality3' class="form-control" />
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="input_47">State</label>
+                                    <input type="text" name="mother_state" id="administrative_area_level_13" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="input_51">ZIP Code</label>
+                                <input type="text" name="mother_zip_Code" id='postal_code3' class="form-control" />
+                                <input type="hidden" id='latitude3' name="mother_lat" />
+                                <input type="hidden" id='longitude3' name="mother_long" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                          <label for="input_41">Father Address</label>
+                            <input type="text" name="" onFocus="geolocate()" id='autocomplete4' class="form-control input-margin-top" placeholder="Enter a location" />
+                            
+                            
+                            
+                        </div>
+                        <div>
+                            
+                            <div class="row form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="input_46">Street No</label>
+                                    <input type="text" name="father_street_no" id="street_number4" class="form-control" />
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="route4">Street Name</label>
+                                    <input type="text" name="father_street_address" id="route4" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                            <div class="row form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="input_48">City</label>
+                                    <input type="text" name="father_city" id='locality4' class="form-control" />
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="input_49">State</label>
+                                    <input type="text" name="father_state" id="administrative_area_level_14" class="form-control" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="input_52">ZIP Code</label>
+                                    <input type="text" name="father_zip_code" id='postal_code4' class="form-control" />
+                                    <input type="hidden" id='latitude4' name="father_lat" />
+                                    <input type="hidden" id='longitude4' name="father_long" />
+                                </div>
+                            </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="input_53">Sibiling Address</label>
+                            <input type="text" name="" onFocus="geolocate()" id='autocomplete5' class="form-control input-margin-bottom" placeholder="Enter a location" />
+                           
+                        </div>
+
+                        <div>
+                            
+                            <div class="row form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                   <label for="input_55">Street No</label>
+                                    <input type="text" name="sibling_street_no" id="street_number5" class="form-control" />
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="route5">Street Name</label>
+                                    <input type="text" name="sibling_street_address" id="route5" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+
+                            <div class="row form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="input_57">City</label>
+                                    <input type="text" name="sibling_city" id='locality5' class="form-control" />
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="input_57">State</label>
+                                    <input type="text" name="sibling_state" id="administrative_area_level_15" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="input_58">ZIP Code</label>
+                                <input type="text" name="sibling_zip_code" id='postal_code5' class="form-control" />
+                                <input type="hidden" id='latitude5' name="sibling_lat" />
+                                <input type="hidden" id='longitude5' name="sibling_long" />
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="input_59">Preferred Location</label>
+                            <input type="text" name="" onFocus="geolocate()" id='autocomplete6' class="form-control input-margin-bottom" placeholder="Enter a location" />
+                                                        
+                            
+                        </div>
+                        <div>
+                            
+                            <div class="row form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="street_number6">Street No</label>
+                                    <input type="text" name="preferred_street_no" id="street_number6" class="form-control" />
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="route6">Street Name</label>
+                                    <input type="text" name="preferred_street_address" id="route6" class="form-control" />
+
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="row form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="input_57">City</label>
+                                <input type="text" name="preferred_city" id='locality6' class="form-control" />
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="input_57">State</label>
+                                <input type="text" name="preferred_state" id="administrative_area_level_16" class="form-control" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="postal_code6">ZIP Code</label>
+                                <input type="text" name="preferred_zip_code" id='postal_code6' class="form-control" />
+                                <input type="hidden" id='latitude6' name="preferred_lat" />
+                                <input type="hidden" id='longitude6' name="preferred_long" />
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+                
+                <div>
+                    <div class="sf-btn" id="tab_4_pre" onclick="navigation(event)">previous</div>
+                    <div class="sf-btn" id="tab_4_next" onclick="navigation(event)">next</div>
+                </div>
+            </div>
+            <div id="tab5">
+                <h4>Please provide child information:</h4>
+                <div style="float:right;margin-top:-2%">Page # 5 of 8</div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="input_61">Medical Allergies</label>
+                            <input type="text" name="medical_allergies" id="input_61" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="input_62">Race</label>
+                            <input type="text" name="race" id="input_62" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="input_63">Religion</label>
+                            <input type="text" name="religion" id="input_63" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="input_64">Authorizing Summary</label>
+                            <input type="text" name="authorizing_summary" id="input_64" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="input_65">Emergency Contact Number</label>
+                            <input type="text" name="emergency_contact_number" id="emer_format" class="form-control" placeholder="(___) ___-____"/>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                        <div class="sf-btn" id="tab_5_pre" onclick="navigation(event)">previous</div>
+                        <div class="sf-btn" id="tab_5_next" onclick="navigation(event)">next</div>
+                    </div>
+            </div>
+            <div id="tab6">
+                <h4>Please provide child information:</h4>
+                <div style="float:right">Page # 6 of 8</div>
+                <div>
+                    <label>Behaviors</label>
+                    <ul>
+                        <li class="tab6_list gchoice_5_21_">
+                            <input name="add" type="checkbox" id="choice_5_21_1" tabindex="69"/>
+                            <label for="choice_5_21_1" id="label_5_21_1">ADD</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_2">
+                            <input name="adhd_impulsive" type="checkbox" id="choice_5_21_2" tabindex="70"/>
+                            <label for="choice_5_21_2" id="label_5_21_2">ADHD/Impulsive</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_3">
+                            <input name="aggression_physical" type="checkbox" id="choice_5_21_3" tabindex="71"/>
+                            <label for="choice_5_21_3" id="label_5_21_3">Aggression physical</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_4">
+                            <input name="aggression_verbal" type="checkbox" id="choice_5_21_4" tabindex="72"/>
+                            <label for="choice_5_21_4" id="label_5_21_4">Aggression Verbal</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_5">
+                            <input name="criminal_activity" type="checkbox" id="choice_5_21_5" tabindex="73"/>
+                            <label for="choice_5_21_5" id="label_5_21_5">Criminal Activity</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_6">
+                            <input name="cruel_to_animals" type="checkbox" id="choice_5_21_6" tabindex="74"/>
+                            <label for="choice_5_21_6" id="label_5_21_6">Cruel to Animals</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_7">
+                            <input name="defies_authority_at_home" type="checkbox" id="choice_5_21_7" tabindex="75"/>
+                            <label for="choice_5_21_7" id="label_5_21_7">Defies Authority at Home</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_8">
+                            <input name="defies_authority_at_school" type="checkbox" id="choice_5_21_8" tabindex="76"/>
+                            <label for="choice_5_21_8" id="label_5_21_8">Defies Authority at School</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_9">
+                            <input name="fire_starter" type="checkbox" id="choice_5_21_9" tabindex="77"/>
+                            <label for="choice_5_21_9" id="label_5_21_9">Fire Starter</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_11">
+                            <input name="gang_involvement" type="checkbox" id="choice_5_21_11" tabindex="78"/>
+                            <label for="choice_5_21_11" id="label_5_21_11">Gang Involvement</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_12">
+                            <input name="hygiene" type="checkbox" id="choice_5_21_12" tabindex="79"/>
+                            <label for="choice_5_21_12" id="label_5_21_12">Hygiene</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_13">
+                            <input name="lies_or_dishonest" type="checkbox" id="choice_5_21_13" tabindex="80"/>
+                            <label for="choice_5_21_13" id="label_5_21_13">Lies or dishonest</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_14">
+                            <input name="oppositional" type="checkbox" id="choice_5_21_14" tabindex="81"/>
+                            <label for="choice_5_21_14" id="label_5_21_14">Oppositional</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_15">
+                            <input name="profanity" type="checkbox" id="choice_5_21_15" tabindex="82"/>
+                            <label for="choice_5_21_15" id="label_5_21_15">Profanity</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_16">
+                            <input name="runner_doesnot_return" type="checkbox" id="choice_5_21_16" tabindex="83"/>
+                            <label for="choice_5_21_16" id="label_5_21_16">Runner/Doesn't Return</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_17">
+                            <input name="runs_leaves_returns" type="checkbox" id="choice_5_21_17" tabindex="84"/>
+                            <label for="choice_5_21_17" id="label_5_21_17">Runs/Leaves Returns</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_18">
+                            <input name="temper_tantrums" type="checkbox" id="choice_5_21_18" tabindex="85"/>
+                            <label for="choice_5_21_18" id="label_5_21_18">Temper Tantrums</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_19">
+                            <input name="theft" type="checkbox" id="choice_5_21_19" tabindex="86"/>
+                            <label for="choice_5_21_19" id="label_5_21_19">Theft</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_21">
+                            <input name="truancy" type="checkbox" id="choice_5_21_21" tabindex="87"/>
+                            <label for="choice_5_21_21" id="label_5_21_21">Truancy</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_21_22">
+                            <input name="vandalism_property_destruction" type="checkbox" id="choice_5_21_22" tabindex="88"/>
+                            <label for="choice_5_21_22" id="label_5_21_22">Vandalism / Property Destruction</label>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <label>Care Center Only</label>
+                    <ul>
+                        <li class="tab6_list">
+                            <input name="diagnosis" type="checkbox" id="diagnosis" tabindex="88"/>
+                            <label for="diagnosis" >Diagnosis</label>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <label>Disability</label>
+                    <ul>
+                        <li class="tab6_list">
+                            <input name="aspergers" type="checkbox"  id="choice_5_23_1" tabindex="90"/>
+                            <label for="choice_5_23_1" id="label_5_23_1">Aspergers</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_23_2">
+                            <input name="autism" type="checkbox"  id="choice_5_23_2" tabindex="91"/>
+                            <label for="choice_5_23_2" id="label_5_23_2">Autism</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_23_3">
+                            <input name="developmental_delays_other" type="checkbox"  id="choice_5_23_3" tabindex="92"/>
+                            <label for="choice_5_23_3" id="label_5_23_3">Developmental Delays,Other</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_23_4">
+                            <input name="mental_retardation" type="checkbox" id="choice_5_23_4" tabindex="93"/>
+                            <label for="choice_5_23_4" id="label_5_23_4">Mental Retardation</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_23_5">
+                            <input name="physical_disability_hearing" type="checkbox"  id="choice_5_23_5" tabindex="94"/>
+                            <label for="choice_5_23_5" id="label_5_23_5">Physical Disability, Hearing</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_23_6">
+                            <input name="hysical_disability_non_amoulatory" type="checkbox"  id="choice_5_23_6" tabindex="95"/>
+                            <label for="choice_5_23_6" id="label_5_23_6">Physical Disability, Non-Amoulatory</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_23_7">
+                            <input name="physical_disability_other" type="checkbox" id="choice_5_23_7" tabindex="96"/>
+                            <label for="choice_5_23_7" id="label_5_23_7">Physical Disability, Other</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_23_8">
+                            <input name="physical_disability_speech" type="checkbox"  id="choice_5_23_8" tabindex="97"/>
+                            <label for="choice_5_23_8" id="label_5_23_8">Physical Disability Speech</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_23_9">
+                            <input name="physical_disability_visual" type="checkbox"  id="choice_5_23_9" tabindex="98"/>
+                            <label for="choice_5_23_9" id="label_5_23_9">Physical Disability, Visual</label>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                        <div class="sf-btn" id="tab_6_pre" onclick="navigation(event)">previous</div>
+                        <div class="sf-btn" id="tab_6_next" onclick="navigation(event)">next</div>
+                    </div>
+            </div>
+            <div id="tab7">
+                <div style="float:right">Page # 7 of 8</div>
+                <div>
+                    <label>Medical Conditions</label>
+                    <ul>
+                        <li class="tab6_list">
+                            <input name="allergies" type="checkbox" value="63" id="choice_5_24_1" tabindex="101"/>
+                            <label for="choice_5_24_1" id="label_5_24_1">Allergies</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_24_2">
+                            <input name="asthma" type="checkbox" value="64" id="choice_5_24_2" tabindex="102"/>
+                            <label for="choice_5_24_2" id="label_5_24_2">Asthma</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_24_3">
+                            <input name="bed_wetting" type="checkbox" value="1" id="choice_5_24_3" tabindex="103"/>
+                            <label for="choice_5_24_3" id="label_5_24_3">Bed Wetting</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_24_4">
+                            <input name="diabetes" type="checkbox" value="65" id="choice_5_24_4" tabindex="104"/>
+                            <label for="choice_5_24_4" id="label_5_24_4">Diabetes</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_24_5">
+                            <input name="eating_disorder" type="checkbox" value="5" id="choice_5_24_5" tabindex="105"/>
+                            <label for="choice_5_24_5" id="label_5_24_5">Eating Disorder</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_24_6">
+                            <input name="encopresis" type="checkbox" value="66" id="choice_5_24_6" tabindex="106"/>
+                            <label for="choice_5_24_6" id="label_5_24_6">Encopresis</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_24_7">
+                            <input name="enuresis" type="checkbox" value="67" id="choice_5_24_7" tabindex="107"/>
+                            <label for="choice_5_24_7" id="label_5_24_7">Enuresis</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_24_8">
+                            <input name="heart_disease_murmur" type="checkbox" value="68" id="choice_5_24_8" tabindex="108"/>
+                            <label for="choice_5_24_8" id="label_5_24_8">Heart Disease / Murmur</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_24_9">
+                            <input name="hivaids" type="checkbox" value="36" id="choice_5_24_9" tabindex="109"/>
+                            <label for="choice_5_24_9" id="label_5_24_9">HIV / AIDS</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_24_11">
+                            <input name="infant_born_pre_term" type="checkbox" value="69" id="choice_5_24_11" tabindex="110"/>
+                            <label for="choice_5_24_11" id="label_5_24_11">Infant, Born Pre-Term</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_24_12">
+                            <input name="infant_born_with_substance_dependence" type="checkbox" value="70" id="choice_5_24_12" tabindex="111"/>
+                            <label for="choice_5_24_12" id="label_5_24_12">Infant, Born With Substance Dependence</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_24_13">
+                            <input name="medical_condition_other" type="checkbox" value="72" id="choice_5_24_13" tabindex="112"/>
+                            <label for="choice_5_24_13" id="label_5_24_13">Medical Condition, Other</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_24_14">
+                            <input name="pregnant" type="checkbox" value="28" id="choice_5_24_14" tabindex="113"/>
+                            <label for="choice_5_24_14" id="label_5_24_14">Pregnant</label>
+                        </li>
+                        <li class="tab6_list  gchoice_5_24_15">
+                            <input name="seizures_epilepsy" type="checkbox" value="71" id="choice_5_24_15" tabindex="114"/>
+                            <label for="choice_5_24_15" id="label_5_24_15">Seizures / Epilepsy</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_24_16">
+                            <input name="sexual_transmitted_disease" type="checkbox" value="35" id="choice_5_24_16" tabindex="115"/>
+                            <label for="choice_5_24_16" id="label_5_24_16">Sexual Transmitted Disease</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_24_17">
+                            <input name="traumatic_brain_injury" type="checkbox" value="78" id="choice_5_24_17" tabindex="116"/>
+                            <label for="choice_5_24_17" id="label_5_24_17">Traumatic Brain Injury</label>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <label>Mood Trauma/Psychosis</label>
+                    <ul>
+                        <li class="tab6_list">
+                            <input name="anxiety_disorder" type="checkbox"  id="choice_5_25_1" tabindex="117"/>
+                            <label for="choice_5_25_1" id="label_5_25_1">Anxiety Disorder</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_25_2">
+                            <input name="bi_polar_disorder" type="checkbox"  id="choice_5_25_2" tabindex="118"/>
+                            <label for="choice_5_25_2" id="label_5_25_2">Bi-Polar Disorder</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_25_3">
+                            <input name="depression" type="checkbox"  id="choice_5_25_3" tabindex="119"/>
+                            <label for="choice_5_25_3" id="label_5_25_3">Depression</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_25_4">
+                            <input name="obsessive_compulsive_disorder" type="checkbox"  id="choice_5_25_4" tabindex="120"/>
+                            <label for="choice_5_25_4" id="label_5_25_4">Obsessive Compulsive Disorder</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_25_5">
+                            <input name="post_traumatic_stress_disorder" type="checkbox"  id="choice_5_25_5" tabindex="121"/>
+                            <label for="choice_5_25_5" id="label_5_25_5">Post Traumatic Stress Disorder</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_25_6">
+                            <input name="psychotic_episodes" type="checkbox"  id="choice_5_25_6" tabindex="122"/>
+                            <label for="choice_5_25_6" id="label_5_25_6">Psychotic Episodes</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_25_7">
+                            <input name="self_injurious_behavior" type="checkbox"  id="choice_5_25_7" tabindex="123"/>
+                            <label for="choice_5_25_7" id="label_5_25_7">Self Injurious Behavior</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_25_8">
+                            <input name="suicide_attempt" type="checkbox"  id="choice_5_25_8" tabindex="124"/>
+                            <label for="choice_5_25_8" id="label_5_25_8">Suicide Attempt</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_25_9">
+                            <input name="suicide_ideation" type="checkbox"  id="choice_5_25_9" tabindex="125"/>
+                            <label for="choice_5_25_9" id="label_5_25_9">Suicide Ideation</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_25_11">
+                            <input name="suspected_victim_of_human_traf" type="checkbox"  id="choice_5_25_11" tabindex="126"/>
+                            <label for="choice_5_25_11" id="label_5_25_11">Suspected Victim of Human Trafficking</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_25_12">
+                            <input name="victim_of_emotional_abuse" type="checkbox"  id="choice_5_25_12" tabindex="127"/>
+                            <label for="choice_5_25_12" id="label_5_25_12">Victim of Emotional Abuse</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_25_13">
+                            <input name="victim_of_human_trafficking" type="checkbox"  id="choice_5_25_13" tabindex="128"/>
+                            <label for="choice_5_25_13" id="label_5_25_13">Victim of Human Trafficking</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_25_14">
+                            <input name="victim_of_physical_abuse" type="checkbox"  id="choice_5_25_14" tabindex="129"/>
+                            <label for="choice_5_25_14" id="label_5_25_14">Victim of Physical Abuse</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_25_15">
+                            <input name="victim_of_sexual_abuse" type="checkbox"  id="choice_5_25_15" tabindex="130"/>
+                            <label for="choice_5_25_15" id="label_5_25_15">Victim of Sexual Abuse</label>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                        <div class="sf-btn" id="tab_7_pre" onclick="navigation(event)">previous</div>
+                        <div class="sf-btn" id="tab_7_next" onclick="navigation(event)">next</div>
+                    </div>
+            </div>
+            <div id="tab8">
+                <div style="float:right">Page # 8 of 8</div>
+                <div>
+                    <label>Sexual Behavior</label>
+                    <ul>
+                        <li class="tab6_list">
+                            <input name="both_sex_attraction" type="checkbox"  id="choice_5_26_1" tabindex="133"/>
+                            <label for="choice_5_26_1" id="label_5_26_1">Both Sex Attraction</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_26_2">
+                            <input name="masturbation" type="checkbox"  id="choice_5_26_2" tabindex="134"/>
+                            <label for="choice_5_26_2" id="label_5_26_2">Masturbation</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_26_3">
+                            <input name="same_sex_attraction" type="checkbox"  id="choice_5_26_3" tabindex="135"/>
+                            <label for="choice_5_26_3" id="label_5_26_3">Same Sex Attraction</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_26_4">
+                            <input name="sexual_offender_adjudicated" type="checkbox"  id="choice_5_26_4" tabindex="136"/>
+                            <label for="choice_5_26_4" id="label_5_26_4">Sexual Offender, Adjudicated</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_26_5">
+                            <input name="sexual_offender_charged" type="checkbox"  id="choice_5_26_5" tabindex="137"/>
+                            <label for="choice_5_26_5" id="label_5_26_5">Sexual Offender, Charged</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_26_6">
+                            <input name="sexual_offender_completed_treatment" type="checkbox"  id="choice_5_26_6" tabindex="138"/>
+                            <label for="choice_5_26_6" id="label_5_26_6">Sexual Offender, Completed Treatment</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_26_7">
+                            <input name="sexual_predator_on_registry" type="checkbox"  id="choice_5_26_7" tabindex="139"/>
+                            <label for="choice_5_26_7" id="label_5_26_7">Sexual Predator, on Registry</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_26_8">
+                            <input name="sexualized_comments_written" type="checkbox"  id="choice_5_26_8" tabindex="140"/>
+                            <label for="choice_5_26_8" id="label_5_26_8">Sexualized Comments, Written / Verbal</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_26_9">
+                            <input name="sexually_active" type="checkbox"  id="choice_5_26_9" tabindex="141"/>
+                            <label for="choice_5_26_9" id="label_5_26_9">Sexually Active</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_26_11">
+                            <input name="sexually_acts_out" type="checkbox"  id="choice_5_26_11" tabindex="142"/>
+                            <label for="choice_5_26_11" id="label_5_26_11">Sexually Acts Out</label>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <label>Substance Abuse</label>
+                    <ul>
+                        <li class="tab6_list gchoice_5_27_1">
+                            <input name="alcohol_abuse" type="checkbox"  id="choice_5_27_1" tabindex="143"/>
+                            <label for="choice_5_27_1" id="label_5_27_1">Alcohol Abuse</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_27_2">
+                            <input name="alcohol_dependence" type="checkbox"  id="choice_5_27_2" tabindex="144"/>
+                            <label for="choice_5_27_2" id="label_5_27_2">Alcohol Dependence</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_27_3">
+                            <input name="alcohol_experimentation" type="checkbox"  id="choice_5_27_3" tabindex="145"/>
+                            <label for="choice_5_27_3" id="label_5_27_3">Alcohol Experimentation</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_27_4">
+                            <input name="cigarette_smoking" type="checkbox"  id="choice_5_27_4" tabindex="146"/>
+                            <label for="choice_5_27_4" id="label_5_27_4">Cigarette Smoking</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_27_5">
+                            <input name="drug_abuse" type="checkbox"  id="choice_5_27_5" tabindex="147"/>
+                            <label for="choice_5_27_5" id="label_5_27_5">Drug Abuse</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_27_6">
+                            <input name="drug_dependence" type="checkbox"  id="choice_5_27_6" tabindex="148"/>
+                            <label for="choice_5_27_6" id="label_5_27_6">Drug Dependence</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_27_7">
+                            <input name="drug_experimentation" type="checkbox" id="choice_5_27_7" tabindex="149"/>
+                            <label for="choice_5_27_7" id="label_5_27_7">Drug Experimentation</label>
+                        </li>
+                        <li class="tab6_list gchoice_5_27_8">
+                            <input name="huffing" type="checkbox"  id="choice_5_27_8" tabindex="150"/>
+                            <label for="choice_5_27_8" id="label_5_27_8">Huffing</label>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                        <div class="sf-btn" id="tab_8_pre" onclick="navigation(event)">previous</div>
+                        <button type="submit" class="sf-btn">submit</button>
+                    </div>
+            </div>
+
+    </form>
+  </t>
+    </div>
+
+         <t t-if="result">
+            <div>
+                    Hello <span t-esc="case_manager_full_name"/>,
+                    <p></p>
+
+                    
+                    Your Record has been saved successfully!
+                    <p></p>
+                    Record Identifier of <t t-esc="first_name"/> <t t-esc="last_name"/> is <t t-esc="record_identifier"/>. The same will be sent to your email.
+                    <p></p>
+                    Thanking you!
+                    
+            </div>
+            <div>
+                <center><a class="btn btn-danger" href="https://st-francis.online/dashboard" style="margin-top:6rem;" >Go to Dashboard</a></center>
+            </div>
+           
+         </t>
+</body>
+<!-- Phone format -->
+<!-- (090) 036-3075 -->
+
+<script>
+
+$(document).keypress(
+    function(event){
+     if (event.which == '13') {
+        event.preventDefault();
+      }
+
+
+});
+    </script>
+<script type="text/javascript">
+   new InputMask().Initialize(document.querySelectorAll("#input_2"),{
+
+  mask: InputMaskDefaultMask.Phone,
+
+
+});
+    
+</script>
+ <script type="text/javascript">
+   new InputMask().Initialize(document.querySelectorAll("#emer_format"),{
+
+  mask: InputMaskDefaultMask.Phone,
+
+
+});
+    
+</script>
+
+  <!-- ssn format -->
+
+  <!-- 123-45-6789 -->
+  <script type="text/javascript">
+   new InputMask().Initialize(document.querySelectorAll("#ssn_format"),{
+
+  mask: InputMaskDefaultMask.Ssn,
+
+
+});
+    
+</script>
+
+
+
+  <script>
+ var placeSearch, autocomplete, autocomplete2, autocomplete3;
+var componentForm = {
+  street_number: 'long_name',
+  route: 'long_name',
+  locality: 'long_name',
+  administrative_area_level_1: 'long_name',
+  country: 'long_name',
+  postal_code: 'long_name'
+};
+function initAutocomplete() {
+  autocomplete = new google.maps.places.Autocomplete(
+    /** @type {!HTMLInputElement} */
+    (document.getElementById('autocomplete')), {
+      types: ['geocode']
+    });
+  autocomplete.addListener('place_changed', function() {
+    fillInAddress(autocomplete, "");
+  });
+  autocomplete2 = new google.maps.places.Autocomplete(
+    /** @type {!HTMLInputElement} */
+    (document.getElementById('autocomplete2')), {
+      types: ['geocode']
+    });
+  autocomplete2.addListener('place_changed', function() {
+    fillInAddress(autocomplete2, "2");
+  });
+  autocomplete3 = new google.maps.places.Autocomplete(
+    /** @type {!HTMLInputElement} */
+    (document.getElementById('autocomplete3')), {
+      types: ['geocode']
+    });
+  autocomplete3.addListener('place_changed', function() {
+    fillInAddress(autocomplete3, "3");
+  });
+    autocomplete4 = new google.maps.places.Autocomplete(
+    /** @type {!HTMLInputElement} */
+    (document.getElementById('autocomplete4')), {
+      types: ['geocode']
+    });
+  autocomplete4.addListener('place_changed', function() {
+    fillInAddress(autocomplete4, "4");
+  });
+   autocomplete5 = new google.maps.places.Autocomplete(
+    /** @type {!HTMLInputElement} */
+    (document.getElementById('autocomplete5')), {
+      types: ['geocode']
+    });
+  autocomplete5.addListener('place_changed', function() {
+    fillInAddress(autocomplete5, "5");
+  });
+  
+  autocomplete6 = new google.maps.places.Autocomplete(
+    /** @type {!HTMLInputElement} */
+    (document.getElementById('autocomplete6')), {
+      types: ['geocode']
+    });
+  autocomplete6.addListener('place_changed', function() {
+    fillInAddress(autocomplete6, "6");
+  });
+}
+function fillInAddress(autocomplete, unique) {
+  var place = autocomplete.getPlace();
+  console.log(place);
+  if(unique == ""){
+  document.getElementById("latitude").value = place.geometry.location.lat();
+  document.getElementById("longitude").value = place.geometry.location.lng();
+  }
+  if(unique == 2){
+  document.getElementById("latitude2").value = place.geometry.location.lat();
+  document.getElementById("longitude2").value = place.geometry.location.lng();
+  }
+  if(unique == 3){
+   
+  document.getElementById("latitude3").value = place.geometry.location.lat();
+  document.getElementById("longitude3").value = place.geometry.location.lng();
+  }
+  if(unique == 4){
+   
+    document.getElementById("latitude4").value = place.geometry.location.lat();
+  document.getElementById("longitude4").value = place.geometry.location.lng();
+  }
+  if(unique == 5){
+   
+    document.getElementById("latitude5").value = place.geometry.location.lat();
+  document.getElementById("longitude5").value = place.geometry.location.lng();
+  }
+  if(unique == 6){
+   
+    document.getElementById("latitude6").value = place.geometry.location.lat();
+  document.getElementById("longitude6").value = place.geometry.location.lng();
+  }
+ 
+  for (var component in componentForm) {
+    if (!!document.getElementById(component + unique)) {
+      document.getElementById(component + unique).value = '';
+      document.getElementById(component + unique).disabled = false;
+    }
+  }
+  for (var i = 0; i &lt; place.address_components.length; i++) {
+    var addressType = place.address_components[i].types[0];
+    if (componentForm[addressType] &amp;&amp; document.getElementById(addressType + unique)) {
+      var val = place.address_components[i][componentForm[addressType]];
+      document.getElementById(addressType + unique).value = val;
+    }
+  }
+}
+google.maps.event.addDomListener(window, "load", initAutocomplete);
+function geolocate() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geolocation = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      console.log(geolocation);
+      
+      var circle = new google.maps.Circle({
+        center: geolocation,
+        radius: position.coords.accuracy
+      });
+      autocomplete.setBounds(circle.getBounds());
+    });
+  }
+}
+$('#regForm').on('keyup keypress', function(e) {
+var keyCode = e.keyCode || e.which;
+if (keyCode === 13) { 
+e.preventDefault();
+return false;
+}
+});
+
+
+  </script>
+
+      </t>
+        

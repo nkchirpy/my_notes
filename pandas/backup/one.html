@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <script data-require="jquery" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <input id="myInput"  type="file" multiple  />
+
+   
+
+    <div id="myFiles"></div>
+    <h2>Output</h2>        
+<div class="output">
+    <textarea rows="10" cols="150" class="form-control"></textarea><br>
+    <a style='display: none'></a><br><br>
+    <img style='display: none'><br>
+</div>
+
+
+  </body>
+  <script type="text/javascript">
+    $(function encodeImageFileAsURL(cb){
+  let inputFile = $('#myInput');
+  let button = $('#myButton');
+  let filesContainer = $('#myFiles');
+  let files = [];
+  let test = []
+  inputFile.change(function() {
+    let newFiles = []; 
+    for(let index = 0; index < inputFile[0].files.length; index++) {
+      let file = inputFile[0].files[index];
+      newFiles.push(file);
+      files.push(file);
+      test.push(inputFile)
+      console.log('testtttt',test)
+    }
+
+    newFiles.forEach(file => {
+      let fileElement = $(`<p>${file.name}</p>`);
+      fileElement.data('fileData', file);
+      filesContainer.append(fileElement);
+      console.log(fileElement)
+      fileElement.click(function(event) {
+        let fileElement = $(event.target);
+        let indexToRemove = files.indexOf(fileElement.data('fileData'));
+
+        fileElement.remove();
+        files.splice(indexToRemove, 1);
+      });
+    });
+      
+
+
+      
+      var all = []
+
+      // console.log('====all=====',all)
+      for (var i=0;i<newFiles.length; i++) {
+        var reader  = new FileReader();
+        all.push(reader)
+        
+        reader.readAsDataURL(newFiles[i]);
+
+      }
+      
+      // console.log('====all=====',all)
+      
+// }
+
+  });
+
+
+  
+});
+//     $('#myInput').change(encodeImageFileAsURL(function(base64Img){
+//     $('.output')
+//       .find('textarea')
+//         .val(base64Img)
+//         .end()
+//       .find('a')
+//         .attr('href', base64Img)
+//         .text(base64Img)
+//         .end()
+//       .find('img')
+//         .attr('src', base64Img);
+// }));
+
+
+  </script>
+</html>

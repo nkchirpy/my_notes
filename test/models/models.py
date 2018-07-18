@@ -89,17 +89,20 @@ class test(models.Model):
         
         cus_add = self.env['res.partner'].search_read([],['type','=','contact','street','city','state_id','zip'])
         cus_add[0].pop('id')
+        print (cus_add)
+        # err
         for i in cus_add:
             for key,val in i.items():
                 etree.SubElement(c_billing_address,key.title().replace("_","")).text=str(val)
 
         
-        
+
+
 
         format_it = etree.XML(etree.tostring(auditfile,pretty_print=True,xml_declaration=True))
         send_to_attach = self.prettify(format_it)
         print (send_to_attach)
-        err
+  
         dummy_file.write(str(send_to_attach))
         dummy_file.close()
         r = ''
@@ -108,6 +111,11 @@ class test(models.Model):
         str(r).replace("\n","")
         attach = self.env['ir.attachment'].create({'name':'test.xml','mimetype':'xml','type':'binary','res_field':'image','datas':r,})
         print (attach)
-        
+   
+
+        return {
+                'type' : 'ir.actions.act_url',
+                'url':   '/web/binary/download_document?model=test.test&field=datas&id=1&filename=false'
+                }
 
        

@@ -1,0 +1,2723 @@
+<?xml version="1.0"?>
+<dcf>
+    <template id="home" name="home">
+        <t t-call="web.login_layout">
+            <head>
+                <style>
+    .header1 {
+      font-family: 'Muli', sans-serif; 
+      line-height: 1.6;
+      text-align:center;
+      margin-top:5rem;
+    }
+    @media only screen and (width: 576px){
+      .header1 {
+          text-align:center;
+          font-size: 2em;
+      }
+    }
+
+    @media only screen and (width: 768px){
+      .header1 {
+          text-align:center;
+          font-size: 3em;
+      }
+    }
+
+    @media only screen and (width: 526px){
+      .header1 {
+          text-align:center;
+          font-size: 3.1em;
+      }
+    }
+
+
+    .para {
+    text-align: center; 
+    margin-left:80px;
+    margin-right:80px; 
+    font-family: 'Muli', sans-serif;line-height: 1.6;
+    }
+    
+    @media only screen and (width: 576px){
+      .para {
+    text-align: center; 
+    margin-left:80px;
+    margin-right:80px; 
+    font-family: 'Muli', sans-serif;line-height: 1.6;
+    }
+    }
+
+
+    
+
+    
+  </style>
+                <link rel="stylesheet" href="P7_child/static/src/css/new.css" type="text/css" />
+            </head>
+            <div id="home page-template-default page page-id-78 boxed box-shadow lightbox">
+                <!-- <div id="content" class="content-area page-wrapper" role="main"> -->
+                <div class="row row-main">
+                    <div class="large-12 col ">
+                        <div class="col-inner ">
+                            <div class="row">
+                                <!-- <div class="col-md-4"> -->
+                                <!-- <img src="P7_child/static/src/logo1.png" style="width:35%; height:80%; margin-top:2rem; margin-left:2rem;" /> -->
+                                <!-- </div> -->
+                                <h1 class="header1">
+                                    <span data-text-color="primary">RUNAWAY CHILDREN PORTAL FOR KANSAS</span>
+                                </h1>
+                            </div>
+                            <p class="para">This portal is dedicated to the cause of tracking runaway children in the state of Kansas. The collection of accurate and timely information for any missing child in Kansas is critical to achieve a positive outcome. To this end we ask you to be as thorough and as accurate as possible with filling the runaway child information.</p>
+                            <div class="gap-element clearfix" style="display:block; height:auto; padding-top:30px"></div>
+                            <div class="row row-dashed" id="row-915374239">
+                                <div class="col small-12 large-12">
+                                    <div class="col-inner text-center">
+                                        <div class="container section-title-container">
+                                            <h3 class="section-title section-title-center">
+                                                <b></b>
+                                                <span class="section-title-main" style="font-size:88%;">Runaway Children Data</span>
+                                                <b></b>
+                                            </h3>
+                                        </div>
+                                        <!-- .section-title -->
+                                        <a href="https://st-francis.online/web/login1" target="_self" class="button success is-shade box-shadow-2 box-shadow-5-hover lowercase" style="border-radius:5px;">
+                                            <span>Create</span>
+                                            <!-- <i class="icon-angle-right"></i> -->
+                                        </a>
+                                        <a href="https://st-francis.online/childsearch" target="_self" class="button success is-shade box-shadow-2 box-shadow-5-hover lowercase" style="border-radius:5px;">
+                                            <span>Modify</span>
+                                            <!-- <i class="icon-angle-right"></i> -->
+                                        </a>
+                                        <a href="http://104.46.110.59/reports/powerbi/Youth%20Runaway%20Demo%20Dashboard?rs:embed=true" target="_self" class="button success is-shade box-shadow-2 box-shadow-5-hover lowercase" style="border-radius:5px;">
+                                            <span>Dashboard</span>
+                                            <!-- <i class="icon-angle-right"></i> -->
+                                        </a>
+                                        <a href="https://st-francis.online/return" target="_self" class="button secondary is-shade box-shadow-2 box-shadow-5-hover lowercase" style="border-radius:5px;">
+                                            <span>Return Report</span>
+                                            <!-- <i class="icon-angle-right"></i> -->
+                                        </a>
+                                    </div>
+                                </div>
+                                <style scope="scope"></style>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+
+
+
+    <template id="new_create" name="Create View">
+        <t t-call="web.login_layout">
+            <t t-if="not result">
+                <head>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAavS6wKsU1ktHDuBpDAoQPkjxZ0gn06fs&amp;libraries=places"></script>
+                    <style type="text/css">
+        body {
+            font-family: "Muli", sans-serif;
+        }
+        .sf-btn {
+            position: relative;
+            display: inline-block;
+            background-color: #dd3333;
+            text-transform: uppercase;
+            font-size: .97em;
+            letter-spacing: .03em;
+            -ms-touch-action: none;
+            touch-action: none;
+            cursor: pointer;
+            font-weight: bolder;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid transparent;
+            vertical-align: middle;
+            border-radius: 0;
+            margin-top: 0;
+            margin-right: 1em;
+            text-shadow: none;
+            line-height: 2.4em;
+            min-height: 2.5em;
+            padding: 0 1.2em;
+            max-width: 100%;
+            transition: transform .3s, border .3s, background .3s, box-shadow .3s, opacity .3s, color .3s;
+            text-rendering: optimizeLegibility;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+
+        }
+        #tab2{
+        display: none;
+        }
+        #tab3{
+            display: none;
+        }
+        #tab4{
+            display: none;
+        }
+        #tab5{
+            display: none;
+        }
+        #tab6{
+            display: none;
+        }
+        #tab7{
+            display: none;
+        }
+        #tab8{
+            display: none;
+        }
+        #tab9{
+            display: none;
+        }
+        #tab10{
+            display: none;
+        }
+        #tab11{
+            display: none;
+        }
+       
+
+
+
+        
+
+
+
+    </style>
+        <script>
+        function navigation(event){
+
+            var tabInfo = event.target.id
+            switch(tabInfo){
+                case 'tab_1_next':
+
+
+                   var next_tab =  document.getElementById('tab2')
+                   var current_tab = document.getElementById('tab1')
+                   var req1,req2;
+                   req1 = document.getElementById('phone').value;
+                   req2 = document.getElementById('txtEmail').value;
+                   
+                   if(req1===''||req2===''){
+                        alert('Kindly fill the required fields')
+                   }else{
+                        next_tab.style.display = 'block';
+                        current_tab.style.display = 'none';
+                   }
+                   
+                   break;
+                case 'tab_2_next':
+                    var next_tab =  document.getElementById('tab3')
+                    var current_tab = document.getElementById('tab2')
+                    var req3, req4, req5,req6;
+                    req3 = document.getElementById('f_name').value;
+                    req4 = document.getElementById('l_name').value;
+
+                    req5 = document.getElementById('date1').value;
+                    req6 = document.getElementById('date2').value;
+
+
+                   
+                    if(req5===''||req6==='' || req3 === '' || req4 === ''){
+                        alert('Kindly fill the required fields')
+                    }else{
+                        next_tab.style.display = 'block';
+                        current_tab.style.display = 'none';
+                    }
+                    break;
+                case 'tab_3_next':
+                    
+                    var next_tab =  document.getElementById('tab4')
+                    var current_tab = document.getElementById('tab3')
+
+                    next_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+
+
+
+                    
+                    break;
+                case 'tab_4_next':
+                    var next_tab =  document.getElementById('tab5')
+                    var current_tab = document.getElementById('tab4')
+
+                    radio_btn1 = document.getElementById('is_runaway_1').checked
+                    radio_btn2 = document.getElementById('is_runaway_2').checked
+                    radio_btn3 = document.getElementById('is_runaway_3').checked
+                    req7 = document.getElementById('c_run_count').checked
+
+                    if(radio_btn1 === 'true' || radio_btn2 === 'true' || radio_btn3 === 'true' || req7 === ''){
+                        alert('Kindly fill the required fields')
+                    }else{
+                        next_tab.style.display = 'block';
+                        current_tab.style.display = 'none';
+                    }
+
+
+
+                    
+                    
+
+
+                    break;
+                case 'tab_5_next':
+                    var next_tab =  document.getElementById('tab6')
+                    var current_tab = document.getElementById('tab5')
+
+                    var req8 = document.getElementById('c_len_stay').value;
+                    radio_btn4 = document.getElementById('is_child_gang_yes').checked
+                    radio_btn5 = document.getElementById('is_child_gang_no').checked
+                    radio_btn6 = document.getElementById('is_child_gang_other').checked
+                    radio_btn7 = document.getElementById('is_child_harr_yes').checked
+                    radio_btn8 = document.getElementById('is_child_harr_no').checked
+                    radio_btn9 = document.getElementById('is_child_harr_other').checked
+
+                    if(req8 === '' || radio_btn4 === 'true' || radio_btn5 === 'true' || radio_btn6 === 'true' || radio_btn7 === 'true' || radio_btn8 === 'true' || radio_btn9 === 'true'){
+                        alert('Kindly fill the required fields')
+                    }else{
+                        next_tab.style.display = 'block';
+                        current_tab.style.display = 'none';
+                    }
+
+
+        
+                    break;
+                case 'tab_6_next':
+                    var next_tab =  document.getElementById('tab7')
+                    var current_tab = document.getElementById('tab6')
+                    next_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_7_next':
+                    var next_tab =  document.getElementById('tab8')
+                    var current_tab = document.getElementById('tab7')
+
+                    radio_btn10 = document.getElementById('child_gender_male').checked
+                    radio_btn11 = document.getElementById('child_gender_female').checked
+                    radio_btn12 = document.getElementById('child_gender_unde').checked
+                    radio_btn13 = document.getElementById('child_ethincity1').checked
+                    radio_btn14 = document.getElementById('child_ethincity2').checked
+                    radio_btn15 = document.getElementById('child_ethincity3').checked
+                    radio_btn16 = document.getElementById('child_ethincity4').checked
+                    radio_btn17 = document.getElementById('child_ethincity5').checked
+                    radio_btn18 = document.getElementById('child_ethincity6').checked
+                    radio_btn19 = document.getElementById('child_ethincity7').checked
+                    radio_btn20 = document.getElementById('child_ethincity8').checked
+                    if(radio_btn10 === 'true' || radio_btn11 === 'true' || radio_btn12 === 'true' || radio_btn13 === 'true' || radio_btn14 === 'true' || radio_btn15 === 'true' || radio_btn16 === 'true' || radio_btn17 === 'true' || radio_btn18 === 'true' || radio_btn19 === 'true' || radio_btn20 === 'true'){
+                        alert('Kindly fill the required fields')
+                    }else{
+                        next_tab.style.display = 'block';
+                        current_tab.style.display = 'none';
+                    }
+
+
+                  
+
+
+                 
+                    break;
+                case 'tab_8_next':
+                    var next_tab =  document.getElementById('tab9')
+                    var current_tab = document.getElementById('tab8')
+                    radio_btn21 = document.getElementById('is_child_dis1').checked
+                    radio_btn22 = document.getElementById('is_child_dis2').checked
+                    radio_btn23 = document.getElementById('is_child_dis3').checked
+                    if(radio_btn21 === 'true' || radio_btn22 === 'true' || radio_btn23 === 'true' ){
+                        alert('Kindly fill the required fields')
+                    }else{
+                        next_tab.style.display = 'block';
+                        current_tab.style.display = 'none';
+                    }
+
+
+                    break;
+
+                case 'tab_9_next':
+                    var next_tab =  document.getElementById('tab10')
+                    var current_tab = document.getElementById('tab9')
+           
+                    next_tab.style.display = 'block';
+                    current_tab.style.display = 'none'
+
+                    break;
+                case 'tab_10_next':
+                    // var next_tab =  document.getElementById('tab8')
+                    var current_tab = document.getElementById('tab10')
+
+                    radio_btn24 = document.getElementById('is_child_court_order1').checked
+                    radio_btn25 = document.getElementById('is_child_court_order2').checked
+                    radio_btn26 = document.getElementById('is_child_court_order3').checked
+                    req9 = document.getElementById('inputFileToLoad').value
+                    radio_btn28 = document.getElementById('is_child_report1').checked
+                    radio_btn29 = document.getElementById('is_child_report2').checked
+
+                    if(radio_btn24 === 'true' || radio_btn25 === 'true' || radio_btn26 === 'true' || radio_btn28 === 'true' || radio_btn29 === 'true' || req9 ==='' ){
+                        alert('Kindly fill the required fields')
+                    }else{
+                        current_tab.style.display = 'none';
+                    }
+
+                    break;
+
+
+                case 'tab_11_next':
+                    var next_tab =  document.getElementById('tab11')
+                    var current_tab = document.getElementById('tab10')
+           
+                    next_tab.style.display = 'block';
+                    current_tab.style.display = 'none'
+
+                    break;
+
+
+
+
+                case 'tab_2_pre':
+                    var pre_tab =  document.getElementById('tab1')
+                    var current_tab = document.getElementById('tab2')
+                    pre_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_3_pre':
+                    var pre_tab =  document.getElementById('tab2')
+                    var current_tab = document.getElementById('tab3')
+                    pre_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_4_pre':
+                    var pre_tab =  document.getElementById('tab3')
+                    var current_tab = document.getElementById('tab4')
+                    pre_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_5_pre':
+                    var pre_tab =  document.getElementById('tab4')
+                    var current_tab = document.getElementById('tab5')
+                    pre_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_6_pre':
+                    var pre_tab =  document.getElementById('tab5')
+                    var current_tab = document.getElementById('tab6')
+                    pre_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_7_pre':
+                    var pre_tab =  document.getElementById('tab6')
+                    var current_tab = document.getElementById('tab7')
+                    pre_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                case 'tab_8_pre':
+                    var pre_tab =  document.getElementById('tab7')
+                    var current_tab = document.getElementById('tab8')
+                    pre_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+
+                case 'tab_9_pre':
+                    var pre_tab =  document.getElementById('tab8')
+                    var current_tab = document.getElementById('tab9')
+                    pre_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+
+                case 'tab_10_pre':
+                    var pre_tab =  document.getElementById('tab9')
+                    var current_tab = document.getElementById('tab10')
+                    pre_tab.style.display = 'block';
+                    current_tab.style.display = 'none';
+                    break;
+                
+
+
+
+            }
+        }
+    </script>
+                    <link rel="stylesheet" href="/P7_child/static/src/css/gforms_formsmain_css.css" />
+                    <link rel="stylesheet" href="/P7_child/static/src/css/gforms_ready_class_css.css" />
+                    <link rel="stylesheet" href="/P7_child/static/src/css/custom.css" />
+                    <link rel="stylesheet" href="/P7_child/static/src/css/yellow_pencil.css" />
+                </head>
+                <body>
+                    <div id="wrapper">
+                        <header id="header" class="header ">
+                            <div class="header-wrapper"></div>
+                        </header>
+                        
+                        <main id="main" class="">
+
+                            <div class="row page-wrapper">
+                                <div id="content" class="large-12 col" role="main">
+                                    <header class="entry-header text-center">
+                                        <h1 class="entry-title">MISSING CHILD DATA PORTAL</h1>
+                                        <div class="is-divider medium"></div>
+                                    </header>
+                                    <div class="">
+                                        <div class="gf_browser_chrome gform_wrapper" id="gform_wrapper_1">
+                                            <a id="gf_1" class="gform_anchor"></a>
+
+                                            <form enctype="multipart/form-data" id="regForm" t-attf-action="/web/submit{{ '?debug' if debug else '' }}" method="post" onsubmit="this.action = this.action + location.hash">
+                                                <div class="gform_heading">
+                                                    <p name="name" style="display:none;"></p>
+                                                    <h3 class="gform_title">Runaway Children Data Form</h3>
+                                                    <span class="gform_description"></span>
+                                                </div>
+                                                <div class="gform_body">
+
+                                                <div id="tab1">    
+                                                    <div id="gform_page_1_1" class="gform_page tab">
+                                                        <div class="gform_page_fields">
+                                                            <ul id="gform_fields_1" class="gform_fields top_label form_sublabel_above description_below">
+                                                                <li id="field_1_50" class="gfield gfield_html gfield_html_formatted gfield_no_follows_desc field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <p>Welcome to the DCF Portal for missing children. This portal does not
+                                                        possess any data or information as it relates to the welfare of a
+                                                        child. But, rather it is solely used to collect the information necessary
+                                                        to investigate a runway child from the DCF system of care.</p>
+                                                                    <p>The collection of accurate and timely information for any missing child
+                                                        in Kansas is critical to achieve a positive outcome. To this end,
+                                                        we ask you to be as thorough and as accurate as possible with inputting
+                                                        the runaway child’s information.</p>
+                                                                </li>
+                                                                <li id="field_1_53" class="gfield gfield_html gfield_html_formatted gfield_no_follows_desc field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <p style="text-align:right;">Page # 1 of 10</p>
+                                                                </li>
+
+                                                    
+                                                                <li id="field_1_2" class="gfield gsection gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section field_sublabel_above field_description_below gfield_visibility_visible">
+
+
+                                                    
+                                                                    <h2 class="gsection_title">Please provide your information:</h2>
+                                                                </li>
+                                                                <li id="field_1_4" class="gfield field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label" for="input_1_4">Case Manager's Full Name:</label>
+                                                                    <div class="ginput_container ginput_container_text">
+                                                                        <input name="m_name" id="input_1_4" type="text" value="" class="medium" />
+                                                                    </div>
+                                                                </li>
+                                                                <li id="field_1_5" class="gfield gfield_contains_required field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label" for="input_1_5">Case Manager’s Phone Number:
+                                                        <span class="gfield_required">*</span></label>
+                                                                    <div class="ginput_container ginput_container_phone">
+                                                                        <input name="m_phone" id="phone" placeholder="(___) ___-____" type="text" value="" class="medium" aria-required="true" aria-invalid="false" />
+                                                                    </div>
+                                                                </li>
+                                                                <li id="field_1_6" class="gfield gfield_contains_required field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label" for="input_1_6">Case Manager’s Email Address:
+                                                        <span class="gfield_required">*</span></label>
+                                                                    <div class="ginput_container ginput_container_email">
+                                                                        <input name="m_email" id="txtEmail" type="text" value="" class="medium" aria-required="true" aria-invalid="false" />
+                                                                    </div>
+                                                                </li>
+                                                                <li id="field_1_7" class="gfield field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label" for="input_1_7">Your Institution’s Name:</label>
+                                                                    <div class="ginput_container ginput_container_text">
+                                                                        <input name="m_istitute" id="input_1_7" type="text" value="" class="medium" aria-invalid="false" />
+                                                                    </div>
+                                                                </li>
+                                                            <div>
+                                                                <div class="sf-btn" id="tab_1_next" onclick="navigation(event)">next</div>
+                                                            </div>
+                </ul>
+                </div>
+         
+            </div>
+           
+
+
+               
+                                                   
+
+                                            </div>
+
+                                            <div id="tab2">
+                                                    <!-- id='gform_page_1_2' -->
+                                                    <div class="gform_page tab">
+                                                        <div class="gform_page_fields">
+                                                            <ul id="gform_fields_1_2" class="gform_fields top_label form_sublabel_above description_below">
+                                                                <li id="field_1_55" class="gfield gfield_html gfield_html_formatted gfield_no_follows_desc field_sublabel_above field_description_below gfield_visibility_visible">
+
+
+
+
+                                                                    <p style="text-align:right;">Page # 2 of 10</p>
+                                                                </li>
+                                                                <li id="field_1_9" class="gfield gsection gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section gv-section field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <h2 class="gsection_title">Now, please be as thorough and accurate with the information you are
+                                                        providing regarding the runaway child.</h2>
+                                                                </li>
+                                                                <li id="field_1_10" class="gfield gfield_contains_required field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label gfield_label_before_complex" for="input_1_10_3">What is the full name of the child:
+                                                        <span class="gfield_required">*</span></label>
+                                                                    <div class="ginput_complex ginput_container no_prefix has_first_name no_middle_name has_last_name no_suffix gf_name_has_2 ginput_container_name gfield_trigger_change" id="input_1_10">
+                                                                        <span id="input_1_10_3_container" class="name_first">
+                                                                            <label for="input_1_10_3">First Name</label>
+                                                                            <input type="text" name="f_name" id="f_name" value="" aria-label="First name" aria-required="true" aria-invalid="false" />
+                                                                        </span>
+                                                                        <span id="input_1_10_6_container" class="name_last">
+                                                                            <label for="input_1_10_6">Last Name</label>
+                                                                            <input type="text" name="l_name" id="l_name" value="" aria-label="Last name" aria-required="true" aria-invalid="false" />
+                                                                        </span>
+                                                                    </div>
+                                                                </li>
+                                                                <li id="field_1_10" class="gfield gfield_contains_required field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <div class="ginput_complex ginput_container no_prefix has_first_name no_middle_name has_last_name no_suffix gf_name_has_2 ginput_container_name gfield_trigger_change" id="input_1_10">
+                                                                        <span id="input_1_10_3_container" class="name_first">
+                                                                            <label for="input_1_10_3">Date of when child ran away from provider: (MM/DD/YYYY)<span class="gfield_required">*</span></label>
+                                                                            <input type="text" name="c_runaway_date" id="date1" value="" placeholder="MM/DD/YYYY" aria-label="First name" aria-required="true" aria-invalid="false" class="js-date" maxlength="10" />
+                                                                        </span>
+                                                                        <span id="input_1_10_6_container" class="name_last">
+                                                                            <label for="input_1_10_6">Date of Birth of Child (MM/DD/YYYY):<span class="gfield_required">*</span></label>
+                                                                            <input type="text" name="c_birth_date" id="date2" value="" placeholder="MM/DD/YYYY" aria-label="Last name" aria-required="true" aria-invalid="false" class="js-date1" maxlength="10" />
+                                                                        </span>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+
+
+                            <div>
+                                <div class="sf-btn" id="tab_2_pre" onclick="navigation(event)">previous</div>
+                                <div class="sf-btn" id="tab_2_next" onclick="navigation(event)">next</div>
+                            </div>
+
+                        </div>
+
+                        <div id="tab3">
+                            <div>
+
+
+                                                    <div id="gform_page_1_3" class="gform_page tab">
+                                                        <div class="gform_page_fields">
+                                                            <ul id="gform_fields_1_3" class="gform_fields top_label form_sublabel_above description_below">
+                                                                <li id="field_1_56" class="gfield gfield_html gfield_html_formatted gfield_no_follows_desc field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <p style="text-align:right;">Page # 3 of 10</p>
+                                                                </li>
+                                                                <li id="field_1_13" class="gfield field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <div id="gfgeo-advanced-address-1_13-geocoder-id" class="gfgeo-advanced-address-geocoder-id" data-geocoder_id="" style="display:none"></div>
+                                                                    <label class="gfield_label gfield_label_before_complex" for="input_1_13_1">Exact last known location of runaway child, please provide the exact
+                                                        address using this field:</label>
+                                                                    <div class="ginput_complex ginput_container has_street has_street2 has_city has_state has_zip ginput_container_address gfield_trigger_change" id="input_1_13">
+                                                                        <span class="ginput_full address_line_1" id="input_1_13_1_container">
+                                                                            <label for="input_1_13_1" id="input_1_13_1_label">Enter Location</label>
+                                                                            <input type="text" onFocus="geolocate()" id="autocomplete" value="" />
+                                                                        </span>
+                                                                        <span class="ginput_full address_line_1" id="input_1_13_1_container">
+                                                                            <label for="input_1_13_1" id="input_1_13_1_label">Street Number</label>
+                                                                            <input type="text" name="c_r_street_no" id="street_number" value="" />
+                                                                        </span>
+                                                                        <span class="ginput_full address_line_2" id="input_1_13_2_container">
+                                                                            <label for="input_1_13_2" id="input_1_13_2_label">Street Name</label>
+                                                                            <input type="text" name="c_r_street" id="route" value="" />
+                                                                        </span>
+                                                                        <li id="field_1_10" class="gfield gfield_contains_required field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                            <div class="ginput_complex ginput_container no_prefix has_first_name no_middle_name has_last_name no_suffix gf_name_has_2 ginput_container_name gfield_trigger_change" id="input_1_10">
+                                                                                <span id="input_1_10_3_container" class="name_first">
+                                                                                    <label for="input_1_13_3" id="input_1_13_3_label">City</label>
+                                                                                    <input type="text" name="c_r_city" id="locality" value="" />
+                                                                                </span>
+                                                                                <span id="input_1_10_6_container" class="name_last">
+                                                                                    <label for="input_1_13_4" id="input_1_13_4_label">State</label>
+                                                                                    <input type="text" name="c_r_country" id="country" value="" />
+                                                                                    <input type="hidden" name="latitude" id="latitude" value="" />
+                                                                                    <input type="hidden" name="longitude" id="longitude" value="" />
+                                                                                </span>
+                                                                            </div>
+                                                                        </li>
+                                                                        <span class="ginput_left address_zip" id="input_1_13_5_container">
+                                                                            <label for="input_1_13_5" id="input_1_13_5_label">ZIP Code</label>
+                                                                            <input type="text" name="c_r_zip" id="postal_code" value="" />
+                                                                        </span>
+                                                                        <input type="hidden" class="gform_hidden" id="input_1_13_6" value="United States" />
+                                                                        <div class="gf_clear gf_clear_complex"></div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                            <div>
+                                <div class="sf-btn" id="tab_3_pre" onclick="navigation(event)">previous</div>
+                                <div class="sf-btn" id="tab_3_next" onclick="navigation(event)">next</div>
+                            </div>
+                        </div>
+
+                        </div>
+
+
+                        <div id="tab4">
+
+
+                                                    <div id="gform_page_1_4" class="gform_page tab">
+                                                        <div class="gform_page_fields">
+                                                            <ul id="gform_fields_1_4" class="gform_fields top_label form_sublabel_above description_below">
+                                                                <li id="field_1_57" class="gfield gfield_html gfield_html_formatted gfield_no_follows_desc field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <p style="text-align:right;">Page # 4 of 10</p>
+                                                                </li>
+                                                                <li id="field_1_14" class="gfield field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label" for="input_1_14">Complete and thorough description of how the child became missing. Please
+                                                        provide exact details of circumstances (such ran away with a friend,
+                                                        etc.)</label>
+                                                                    <div class="ginput_container ginput_container_textarea">
+                                                                        <textarea name="c_miss_reason" id="input_1_14" class="textarea medium" aria-invalid="false" rows="10" cols="50"></textarea>
+                                                                    </div>
+                                                                </li>
+                                                                <li id="field_1_15" class="gfield gfield_contains_required field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label">Is the child a Runaway child or an Exparte?
+                                                        <span class="gfield_required">*</span></label>
+                                                                    <div class="ginput_container ginput_container_radio">
+                                                                        <ul class="gfield_radio" id="input_1_15">
+                                                                            <li class="gchoice_1_15_0">
+                                                                                <input name="is_runaway" type="radio" value="runway" id="is_runaway_1" />
+                                                                                <label for="choice_1_15_0" id="label_1_15_0" class="radio-inline">Runaway child </label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_15_1">
+                                                                                <input name="is_runaway" type="radio" value="exparte" id="is_runaway_2" />
+                                                                                <label for="choice_1_15_1" id="label_1_15_1" class="radio-inline">Exparte child</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_15_2">
+                                                                                <input name="is_runaway" type="radio" value="undefined" id="is_runaway_3" onfocus="jQuery(this).next('input').focus();" />
+                                                                                <input id="is_runaway" name="is_runaway" type="text" placeholder="Other : (Please specify)" aria-label="Other" onfocus="jQuery(this).prev(&quot;input&quot;)[0].click(); if(jQuery(this).val() == &quot;Other&quot;) { jQuery(this).val(&quot;&quot;); }" onblur="if(jQuery(this).val().replace(&quot; &quot;, &quot;&quot;) == &quot;&quot;) { jQuery(this).val(&quot;Other&quot;); }" />
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                                <li id="field_1_46" class="gfield gfield_contains_required field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label" for="input_1_46">How many times has this child ran away:
+                                                        <span class="gfield_required">*</span></label>
+                                                                    <div class="ginput_container ginput_container_number">
+                                                                        <input name="c_run_count" id="c_run_count" type="text" value="" class="medium" aria-required="true" aria-invalid="false" />
+                                                                        <div class="instruction ">Please enter a value between
+                                                            <strong>0</strong> and
+                                                            <strong>100</strong>.</div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                <div>
+                                    <div class="sf-btn" id="tab_4_pre" onclick="navigation(event)">previous</div>
+                                    <div class="sf-btn" id="tab_4_next" onclick="navigation(event)">next</div>
+                                </div>
+                            </div>
+                            <div id="tab5">
+                                                    <div id="gform_page_1_5" class="gform_page tab">
+                                                        <div class="gform_page_fields">
+                                                            <ul id="gform_fields_1_5" class="gform_fields top_label form_sublabel_above description_below">
+                                                                <li id="field_1_58" class="gfield gfield_html gfield_html_formatted gfield_no_follows_desc field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <p style="text-align:right;">Page # 5 of 10</p>
+                                                                </li>
+                                                                <li id="field_1_17" class="gfield gfield_contains_required field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label" for="input_1_17">What is the specific length of stay at prior home in number of weeks
+                                                        Number of weeks:
+                                                        <span class="gfield_required">*</span></label>
+                                                                    <div class="ginput_container ginput_container_number">
+                                                                        <input name="c_len_stay" id="c_len_stay" type="text" value="" class="medium" aria-required="true" aria-invalid="false" />
+                                                                        <div class="instruction ">Please enter a value between
+                                                            <strong>1</strong> and
+                                                            <strong>1000</strong>.</div>
+                                                                    </div>
+                                                                </li>
+                                                                <li id="field_1_18" class="gfield gfield_contains_required field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label">Does the child have a Gang Affiliations?
+                                                        <span class="gfield_required">*</span></label>
+                                                                    <div class="ginput_container ginput_container_radio">
+                                                                        <ul class="gfield_radio" id="input_1_18">
+                                                                            <li class="gchoice_1_18_0">
+                                                                                <input name="is_child_gang" type="radio" value="yes" id="is_child_gang_yes" />
+                                                                                <label for="choice_1_18_0" id="label_1_18_0">Yes</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_18_1">
+                                                                                <input name="is_child_gang" type="radio" value="no" id="is_child_gang_no" />
+                                                                                <label for="choice_1_18_1" id="label_1_18_1">No</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_18_2">
+                                                                                <input name="is_child_gang" type="radio" value="undefined" id="is_child_gang_other" />
+                                                                                <label for="choice_1_18_2" id="is_child_gang_other">I do not know</label>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                                <li id="field_1_19" class="gfield gfield_contains_required field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label">Do you have any concerns that the child may be in any way involved in
+                                                        human sex trafficking or prostitution?
+                                                        <span class="gfield_required">*</span></label>
+                                                                    <div class="ginput_container ginput_container_radio">
+                                                                        <ul class="gfield_radio" id="input_1_19">
+                                                                            <li class="gchoice_1_19_0">
+                                                                                <input name="is_child_harr" type="radio" value="yes" id="is_child_harr_yes" />
+                                                                                <label for="choice_1_19_0" id="label_1_19_0">Yes</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_19_1">
+                                                                                <input name="is_child_harr" type="radio" value="no" id="is_child_harr_no" />
+                                                                                <label for="choice_1_19_1" id="label_1_19_1">No</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_19_2">
+                                                                                <input name="is_child_harr" type="radio" value="dont" id="is_child_harr_other" />
+                                                                                <label for="choice_1_19_2" id="label_1_19_2">I do not know</label>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                            
+                                    <div class="sf-btn" id="tab_5_pre" onclick="navigation(event)">previous</div>
+                                    <div class="sf-btn" id="tab_5_next" onclick="navigation(event)">next</div>
+                                </div>     
+
+                                <div id="tab6">   
+                                                    <div id="gform_page_1_6" class="gform_page tab">
+                                                        <div class="gform_page_fields">
+                                                            <ul id="gform_fields_1_6" class="gform_fields top_label form_sublabel_above description_below">
+                                                                <li id="field_1_59" class="gfield gfield_html gfield_html_formatted gfield_no_follows_desc field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <p style="text-align:right;">Page # 6 of 10</p>
+                                                                </li>
+                                                                <li id="field_1_21" class="gfield field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label gfield_label_before_complex" for="input_1_21_shim">Please provide the social media account user name(s) the child for each
+                                                        service:</label>
+                                                                    <style type="text/css">
+                                                        body .ginput_container_list table.gfield_list tbody tr td.gfield_list_icons {
+                                                            vertical-align: middle !important;
+                                                        }
+
+                                                        body .ginput_container_list table.gfield_list tbody tr td.gfield_list_icons img.add_list_item,
+                                                        body .ginput_container_list table.gfield_list tbody tr td.gfield_list_icons img.delete_list_item {
+                                                            background-color: transparent !important;
+                                                            background-position: 0 0;
+                                                            background-size: 16px 16px !important;
+                                                            background-repeat: no-repeat;
+                                                            border: none !important;
+                                                            width: 16px !important;
+                                                            height: 16px !important;
+                                                            opacity: 0.5;
+                                                            transition: opacity .5s ease-out;
+                                                            -moz-transition: opacity .5s ease-out;
+                                                            -webkit-transition: opacity .5s ease-out;
+                                                            -o-transition: opacity .5s ease-out;
+                                                        }
+
+                                                        body .ginput_container_list table.gfield_list tbody tr td.gfield_list_icons img.add_list_item:hover,
+                                                        body .ginput_container_list table.gfield_list tbody tr td.gfield_list_icons img.delete_list_item:hover {
+                                                            opacity: 1.0;
+                                                        }
+                                                    </style>
+                                                                    <div class="ginput_container ginput_container_list ginput_list">
+                                                                        <input type="text" id="input_1_21_shim" style="position:absolute;left:-999em;" onfocus="jQuery( &quot;#field_1_21 table tr td:first-child input&quot; ).focus();" />
+                                                                        <table class="gfield_list gfield_list_container">
+                                                                            <colgroup>
+                                                                                <col id="gfield_list_21_col_1" class="gfield_list_col_odd" />
+                                                                                <col id="gfield_list_21_col_2" class="gfield_list_col_even" />
+                                                                                <col id="gfield_list_21_col_3" class="gfield_list_col_odd" />
+                                                                                <col id="gfield_list_21_col_4" class="gfield_list_col_even" />
+                                                                            </colgroup>
+                                                                            <tr>
+                                                                                <th>Facebook Username 1</th>
+                                                                                <th>Snapchat Username 1</th>
+                                                                                <th>Instagram Username 1</th>
+                                                                            </tr>
+                                                                            <tr class="gfield_list_row_odd gfield_list_group">
+                                                                                <td class="gfield_list_cell gfield_list_21_cell1" data-label="Facebook Username">
+                                                                                    <input name="c_facbook" id="" type="text" value="" class="medium" aria-required="true" aria-invalid="false" />
+                                                                                </td>
+                                                                                <td class="gfield_list_cell gfield_list_21_cell2" data-label="Snapchat Username">
+                                                                                    <input name="c_snap" id="" type="text" value="" class="medium" aria-required="true" aria-invalid="false" />
+                                                                                </td>
+                                                                                <td class="gfield_list_cell gfield_list_21_cell3" data-label="Instagram Username">
+                                                                                    <input name="c_instagram" id="" type="text" value="" class="medium" aria-required="true" aria-invalid="false" />
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th>Facebook Username 2</th>
+                                                                                <th>Snapchat Username 2</th>
+                                                                                <th>Instagram Username 2</th>
+                                                                            </tr>
+                                                                            <tr class="gfield_list_row_odd gfield_list_group">
+                                                                                <td class="gfield_list_cell gfield_list_21_cell1" data-label="Facebook Username">
+                                                                                    <input name="c_facbook2" id="" type="text" value="" class="medium" aria-required="true" aria-invalid="false" />
+                                                                                </td>
+                                                                                <td class="gfield_list_cell gfield_list_21_cell2" data-label="Snapchat Username">
+                                                                                    <input name="c_snap2" id="" type="text" value="" class="medium" aria-required="true" aria-invalid="false" />
+                                                                                </td>
+                                                                                <td class="gfield_list_cell gfield_list_21_cell3" data-label="Instagram Username">
+                                                                                    <input name="c_instagram2" id="" type="text" value="" class="medium" aria-required="true" aria-invalid="false" />
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th>Facebook Username 3</th>
+                                                                                <th>Snapchat Username 3</th>
+                                                                                <th>Instagram Username 3</th>
+                                                                            </tr>
+                                                                            <tr class="gfield_list_row_odd gfield_list_group">
+                                                                                <td class="gfield_list_cell gfield_list_21_cell1" data-label="Facebook Username">
+                                                                                    <input name="c_facbook3" id="" type="text" value="" class="medium" aria-required="true" aria-invalid="false" />
+                                                                                </td>
+                                                                                <td class="gfield_list_cell gfield_list_21_cell2" data-label="Snapchat Username">
+                                                                                    <input name="c_snap3" id="" type="text" value="" class="medium" aria-required="true" aria-invalid="false" />
+                                                                                </td>
+                                                                                <td class="gfield_list_cell gfield_list_21_cell3" data-label="Instagram Username">
+                                                                                    <input name="c_instagram3" id="" type="text" value="" class="medium" aria-required="true" aria-invalid="false" />
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                </li>
+                                                                <li id="field_1_22" class="gfield field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label gfield_label_before_complex" for="input_1_22_shim">What is the cell phone number or numbers that the child uses (you can
+                                                        provide more than one)</label>
+                                                                    <div class="ginput_container ginput_container_list ginput_list">
+                                                                        <input type="text" id="input_1_22_shim" style="position:absolute;left:-999em;" />
+                                                                        <table class="gfield_list gfield_list_container">
+                                                                            <colgroup>
+                                                                                <col id="gfield_list_22_col_1" class="gfield_list_col_odd" />
+                                                                                <col id="gfield_list_22_col_2" class="gfield_list_col_even" />
+                                                                                <col id="gfield_list_22_col_3" class="gfield_list_col_odd" />
+                                                                                <col id="gfield_list_22_col_4" class="gfield_list_col_even" />
+                                                                            </colgroup>
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>Cell Phone 1</th>
+                                                                                    <th>Cell Phone 2</th>
+                                                                                    <th>Cell Phone 3</th>
+                                                                                    <th>Cell Phone 4</th>
+                                                                                    <th>Cell Phone 5</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr class="gfield_list_row_odd gfield_list_group">
+                                                                                    <td class="gfield_list_cell gfield_list_22_cell1" data-label="Cell Phone 1">
+                                                                                        <input name="c_phone" id="phone_format1" type="text" value="" class="medium " aria-required="true" placeholder="(___) ___-____" />
+                                                                                        <!-- <input type='text' name='c_phone' value='' /> -->
+                                                                                    </td>
+                                                                                    <td class="gfield_list_cell gfield_list_22_cell2" data-label="Cell Phone 2">
+                                                                                        <input name="c_phone_2" id="phone_format2" type="text" value="" class="medium " aria-required="true" placeholder="(___) ___-____" />
+                                                                                        <!-- <input type='text' name='c_phone_2' value='' /> -->
+                                                                                    </td>
+                                                                                    <td class="gfield_list_cell gfield_list_22_cell3" data-label="Cell Phone 3">
+                                                                                        <input name="c_phone_3" id="phone_format3" type="text" value="" class="medium " aria-required="true" placeholder="(___) ___-____" />
+                                                                                    </td>
+                                                                                    <td class="gfield_list_cell gfield_list_22_cell3" data-label="Cell Phone 3">
+                                                                                        <input name="c_phone_4" id="phone_format4" type="text" value="" class="medium " aria-required="true" placeholder="(___) ___-____" />
+                                                                                    </td>
+                                                                                    <td class="gfield_list_cell gfield_list_22_cell3" data-label="Cell Phone 3">
+                                                                                        <input name="c_phone_5" id="phone_format5" type="text" value="" class="medium " aria-required="true" placeholder="(___) ___-____" />
+                                                                                    </td>
+                                                                                    <!-- <td class='gfield_list_icons'>
+                                                                        <img src='https://www.sfwtechnologies.com/wp-content/plugins/gravityforms/images/list-add.svg'
+                                                                            class='add_list_item ' title='Add another row' alt='Add a new row'
+                                                                            onclick='gformAddListItem(this, 0)' onkeypress='gformAddListItem(this, 0)'
+                                                                            style='cursor:pointer;' />
+                                                                        <img src='https://www.sfwtechnologies.com/wp-content/plugins/gravityforms/images/list-remove.svg'
+                                                                            class='delete_list_item' title='Remove this row'
+                                                                            alt='Remove this row' onclick='gformDeleteListItem(this, 0)'
+                                                                            onkeypress='gformDeleteListItem(this, 0)' style='cursor:pointer; visibility:hidden;'
+                                                                        />
+                                                                    </td> -->
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    
+                                                    </div>
+
+                                <div>
+                                    <div class="sf-btn" id="tab_6_pre" onclick="navigation(event)">previous</div>
+                                    <div class="sf-btn" id="tab_6_next" onclick="navigation(event)">next</div>
+                                </div>
+
+                            </div>
+                            <div id="tab7">
+                                                    <div id="gform_page_1_7" class="gform_page tab">
+                                                        <div class="gform_page_fields">
+                                                            <ul id="gform_fields_1_7" class="gform_fields top_label form_sublabel_above description_below">
+                                                                <li id="field_1_60" class="gfield gfield_html gfield_html_formatted gfield_no_follows_desc field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <p style="text-align:right;">Page # 7 of 10</p>
+                                                                </li>
+                                                                <li id="field_1_24" class="gfield gfield_contains_required field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label">What is the child's gender:
+                                                        <span class="gfield_required">*</span></label>
+                                                                    <div class="ginput_container ginput_container_radio">
+                                                                        <ul class="gfield_radio" id="input_1_24">
+                                                                            <li class="gchoice_1_24_0">
+                                                                                <input name="child_gender" type="radio" value="male" id="child_gender_male" />
+                                                                                <label for="choice_1_24_0" id="label_1_24_0">Male</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_24_1">
+                                                                                <input name="child_gender" type="radio" value="female" id="child_gender_female" />
+                                                                                <label for="choice_1_24_1" id="label_1_24_1">Female</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_24_2">
+                                                                                <input name="child_gender" type="radio" value="undefined" id="child_gender_unde" />
+                                                                                <label for="choice_1_24_2" id="label_1_24_2">Undefined</label>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                                <li id="field_1_25" class="gfield gfield_contains_required field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label">What is the child’s ethnicity?:
+                                                        <span class="gfield_required">*</span></label>
+                                                                    <div class="ginput_container ginput_container_radio">
+                                                                        <ul class="gfield_radio" id="input_1_25">
+                                                                            <li class="gchoice_1_25_0">
+                                                                                <input name="child_ethincity" type="radio" value="Asian" id="choice_1_25_0" />
+                                                                                <label for="choice_1_25_0" id="child_ethincity1">Asian</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_25_1">
+                                                                                <input name="child_ethincity" type="radio" value="White" id="child_ethincity2" />
+                                                                                <label for="choice_1_25_1" id="label_1_25_1">White</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_25_2">
+                                                                                <input name="child_ethincity" type="radio" value="Black_African_American" id="child_ethincity3" />
+                                                                                <label for="choice_1_25_2" id="label_1_25_2">Black African American</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_25_3">
+                                                                                <input name="child_ethincity" type="radio" value="Pacific_Islander" id="child_ethincity4" />
+                                                                                <label for="choice_1_25_3" id="label_1_25_3">Pacific Islander</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_25_4">
+                                                                                <input name="child_ethincity" type="radio" value="American_Indian" id="child_ethincity5" />
+                                                                                <label for="choice_1_25_4" id="label_1_25_4">American Indian</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_25_5">
+                                                                                <input name="child_ethincity" type="radio" value="Hispanic_or_Latino" id="child_ethincity6" />
+                                                                                <label for="choice_1_25_5" id="label_1_25_5">Hispanic or Latino</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_25_6">
+                                                                                <input name="child_ethincity" type="radio" value="Some_other_race" id="child_ethincity7" />
+                                                                                <label for="choice_1_25_6" id="label_1_25_6">Some other race</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_25_7">
+                                                                                <input name="child_ethincity" type="radio" value="dontknow" id="child_ethincity8" />
+                                                                                <label for="choice_1_25_7" id="label_1_25_7">I do not know</label>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- <div class='gform_page_footer'>
+                                            <input type='button' id='gform_previous_button_1_43' class='gform_previous_button button' value='Previous' onclick='jQuery("#gform_target_page_number_1").val("6");  jQuery("#gform_1").trigger("submit",[true]); '
+                                                onkeypress='if( event.keyCode == 13 ){ jQuery("#gform_target_page_number_1").val("6");  jQuery("#gform_1").trigger("submit",[true]); } '
+                                            />
+                                            <input type='button' id='gform_next_button_1_43' class='gform_next_button button'
+                                                value='Next' onclick='jQuery("#gform_target_page_number_1").val("8");  jQuery("#gform_1").trigger("submit",[true]); '
+                                                onkeypress='if( event.keyCode == 13 ){ jQuery("#gform_target_page_number_1").val("8");  jQuery("#gform_1").trigger("submit",[true]); } '
+                                            />
+                                        </div> -->
+                                                    </div>
+
+                                <div>
+                                    <div class="sf-btn" id="tab_7_pre" onclick="navigation(event)">previous</div>
+                                    <div class="sf-btn" id="tab_7_next" onclick="navigation(event)">next</div>
+                                </div>
+                            </div>
+                            <div id="tab8">
+
+                                                    <div id="gform_page_1_8" class="gform_page tab">
+                                                        <div class="gform_page_fields">
+                                                            <ul id="gform_fields_1_8" class="gform_fields top_label form_sublabel_above description_below">
+                                                                <li id="field_1_61" class="gfield gfield_html gfield_html_formatted gfield_no_follows_desc field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <p style="text-align:right;">Page # 8 of 10</p>
+                                                                </li>
+                                                                <li id="field_1_26" class="gfield field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label" for="input_1_26">What is the specific Police Report Number for the child:</label>
+                                                                    <div class="ginput_container ginput_container_text">
+                                                                        <input name="c_police_report_no" id="input_1_26" type="text" value="" class="medium" aria-invalid="false" />
+                                                                    </div>
+                                                                </li>
+                                                                <li id="field_1_27" class="gfield field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label" for="input_1_27">Who is the law enforcement contact and agency:</label>
+                                                                    <div class="ginput_container ginput_container_text">
+                                                                        <input name="c_contact_agency" id="input_1_27" type="text" value="" class="medium" aria-invalid="false" />
+                                                                    </div>
+                                                                </li>
+                                                                <li id="field_1_28" class="gfield gfield_contains_required field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label">Does the child have any disabilities?:
+                                                        <span class="gfield_required">*</span></label>
+                                                                    <div class="ginput_container ginput_container_radio">
+                                                                        <ul class="gfield_radio" id="input_1_28">
+                                                                            <li class="gis_child_dis">
+                                                                                <input name="is_child_dis" type="radio" value="yes" id="is_child_dis1" />
+                                                                                <label for="is_child_dis" id="label_1_28_0">Yes</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_28_1">
+                                                                                <input name="is_child_dis" type="radio" value="no" id="is_child_dis2" />
+                                                                                <label for="choice_1_28_1" id="label_1_28_1">No</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_28_2">
+                                                                                <input name="is_child_dis" type="radio" value="dont" id="is_child_dis3" />
+                                                                                <label for="choice_1_28_2" id="label_1_28_2">I do not know</label>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- <div class='gform_page_footer'>
+                                            <input type='button' id='gform_previous_button_1_44' class='gform_previous_button button' value='Previous' onclick='jQuery("#gform_target_page_number_1").val("7");  jQuery("#gform_1").trigger("submit",[true]); '
+                                                onkeypress='if( event.keyCode == 13 ){ jQuery("#gform_target_page_number_1").val("7");  jQuery("#gform_1").trigger("submit",[true]); } '
+                                            />
+                                            <input type='button' id='gform_next_button_1_44' class='gform_next_button button'
+                                                value='Next' onclick='jQuery("#gform_target_page_number_1").val("9");  jQuery("#gform_1").trigger("submit",[true]); '
+                                                onkeypress='if( event.keyCode == 13 ){ jQuery("#gform_target_page_number_1").val("9");  jQuery("#gform_1").trigger("submit",[true]); } '
+                                            />
+                                        </div> -->
+                                                    </div>
+
+
+                                <div>
+                                    <div class="sf-btn" id="tab_8_pre" onclick="navigation(event)">previous</div>
+                                    <div class="sf-btn" id="tab_8_next" onclick="navigation(event)">next</div>
+                                </div>
+                            </div>
+                            <div id="tab9">
+
+
+                                                    <div id="gform_page_1_9" class="gform_page tab">
+                                                        <div class="gform_page_fields">
+                                                            <ul id="gform_fields_1_9" class="gform_fields top_label form_sublabel_above description_below">
+                                                                <li id="field_1_62" class="gfield gfield_html gfield_html_formatted gfield_no_follows_desc field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <p style="text-align:right;">Page # 9 of 10</p>
+                                                                </li>
+                                                                <li id="field_1_29" class="gfield field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label" for="input_1_29">What are the child’s medical issues, if any:</label>
+                                                                    <div class="ginput_container ginput_container_textarea">
+                                                                        <textarea name="c_medical_issue" id="input_1_29" class="textarea medium" aria-invalid="false" rows="10" cols="50"></textarea>
+                                                                    </div>
+                                                                </li>
+                                                                <li id="field_1_30" class="gfield field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label" for="input_1_30">What is the list of the child’s medications, if any:</label>
+                                                                    <div class="ginput_container ginput_container_textarea">
+                                                                        <textarea name="c_medication" id="input_1_30" class="textarea medium" aria-invalid="false" rows="10" cols="50"></textarea>
+                                                                    </div>
+                                                                </li>
+                                                                <li id="field_1_31" class="gfield field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label" for="input_1_31">What are the child’s emotional and mental problems, if any:</label>
+                                                                    <div class="ginput_container ginput_container_textarea">
+                                                                        <textarea name="c_mental_issue" id="input_1_31" class="textarea medium" aria-invalid="false" rows="10" cols="50"></textarea>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- <div class='gform_page_footer'>
+                                            <input type='button' id='gform_previous_button_1_45' class='gform_previous_button button' value='Previous' onclick='jQuery("#gform_target_page_number_1").val("8");  jQuery("#gform_1").trigger("submit",[true]); '
+                                                onkeypress='if( event.keyCode == 13 ){ jQuery("#gform_target_page_number_1").val("8");  jQuery("#gform_1").trigger("submit",[true]); } '
+                                            />
+                                            <input type='button' id='gform_next_button_1_45' class='gform_next_button button'
+                                                value='Next' onclick='jQuery("#gform_target_page_number_1").val("10");  jQuery("#gform_1").trigger("submit",[true]); '
+                                                onkeypress='if( event.keyCode == 13 ){ jQuery("#gform_target_page_number_1").val("10");  jQuery("#gform_1").trigger("submit",[true]); } '
+                                            />
+                                        </div> -->
+                                                    </div>
+
+
+                                <div>
+                                    <div class="sf-btn" id="tab_9_pre" onclick="navigation(event)">previous</div>
+                                    <div class="sf-btn" id="tab_9_next" onclick="navigation(event)">next</div>
+                                </div>
+                            </div>
+                            <div id="tab10">
+
+
+                                                    <div id="gform_page_1_10" class="gform_page tab">
+                                                        <div class="gform_page_fields">
+                                                            <ul id="gform_fields_1_10" class="gform_fields top_label form_sublabel_above description_below">
+                                                                <li id="field_1_63" class="gfield gfield_html gfield_html_formatted gfield_no_follows_desc field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <p style="text-align:right;">Page # 10 of 10</p>
+                                                                </li>
+                                                                <li id="field_1_33" class="gfield gfield_contains_required field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label">Are there any court orders for the child (ie. No run orders/house arrest/probation):
+                                                        <span class="gfield_required">*</span></label>
+                                                                    <div class="ginput_container ginput_container_radio">
+                                                                        <ul class="gfield_radio" id="input_1_33">
+                                                                            <li class="gchoice_1_33_0">
+                                                                                <input type="radio" name="is_child_court_order" value="yes" id="is_child_court_order1" />
+                                                                                <label for="choice_1_33_0" id="label_1_33_0">Yes</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_33_1">
+                                                                                <input type="radio" name="is_child_court_order" value="no" id="is_child_court_order2" />
+                                                                                <label for="choice_1_33_1" id="label_1_33_1">No</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_33_2">
+                                                                                <input type="radio" name="is_child_court_order" value="dont" id="is_child_court_order3" />
+                                                                                <label for="choice_1_33_2" id="label_1_33_2">I do not know</label>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                                <li id="field_1_34" class="gfield gfield_contains_required field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label">Please update the most recent photos of the child using the upload button
+                                                        (you can upload more than one photo):
+                                                        <span class="gfield_required">*</span></label>
+                                                                    <div class="ginput_container ginput_container_fileupload">
+                                                                        <div id="gform_multifile_upload_1_34" class="gform_fileupload_multifile">
+                                                                            <div id="gform_drag_drop_area_1_34" class="gform_drop_area">
+                                                                                <span class="gform_drop_instructions">Drop files here or </span>
+                                                                                <input class="button gform_button_select_files" id="inputFileToLoad" type="file" onchange="encodeImageFileAsURL();" name="c_poto_ids" />
+                                                                                <!-- <input id='gform_browse_button_1_34 fileupload' name="c_poto_ids" type='file' multiple="multiple" value='Select files' class='button gform_button_select_files' aria-describedby='extensions_message_1_34'
+                                                                /> -->
+                                                                            </div>
+                                                                            <div class="output">
+                                                                                <textarea style="display:none;" name="c_photo_binary" class="form-control"></textarea>
+                                                                                <a style="display:none;"></a>
+                                                                                <img style="display:none;"></img>
+                                                                            </div>
+                                                                        </div>
+                                                                        <span id="extensions_message_1_34" class="screen-reader-text">Accepted file types: jpg, png.</span>
+                                                                        <div class="validation_message">
+                                                                            <ul id="gform_multifile_messages_1_34"></ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div id="gform_preview_1_34"></div>
+                                                                </li>
+                                                                <li id="field_1_49" class="gfield field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label" for="input_1_49">Please provide DCF any advice, leads, or information on how we might
+                                                        be able to find the runway child?</label>
+                                                                    <div class="ginput_container ginput_container_textarea">
+                                                                        <textarea id="input_1_49" class="textarea medium" aria-invalid="false" rows="10" cols="50" name="advice"></textarea>
+                                                                    </div>
+                                                                </li>
+                                                                <li id="field_1_47" class="gfield gfield_contains_required field_sublabel_above field_description_below gfield_visibility_visible">
+                                                                    <label class="gfield_label">Has the child been reported to the NCMEC (not the NCIC):
+                                                        <span class="gfield_required">*</span></label>
+                                                                    <div class="ginput_container ginput_container_radio">
+                                                                        <ul class="gfield_radio" id="input_1_47">
+                                                                            <li class="gchoice_1_47_0">
+                                                                                <input type="radio" name="is_child_report" value="yes" id="is_child_report1" />
+                                                                                <label for="choice_1_47_0" id="label_1_47_0">Yes</label>
+                                                                            </li>
+                                                                            <li class="gchoice_1_47_1">
+                                                                                <input type="radio" name="is_child_report" value="no" id="is_child_report2" />
+                                                                                <label for="choice_1_47_1" id="label_1_47_1">No</label>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                            
+                                                    </div>
+                                                   
+
+
+                                <div>
+                                    <div class="sf-btn" id="tab_10_pre" onclick="navigation(event)">previous</div>
+                                    <button type="submit" id ="tab_11_next" class="sf-btn">submit</button>
+                                   
+                                </div>
+
+                            
+
+                                                    </div>
+                                <div id="tab11">
+                                     <img src="/P7_child/static/src/loader.gif" id="gif" style="display: block; margin: 0 auto; width: 260px; visibility: hidden;" />
+                                     <div id="gform_page_1_11" class="gform_page" style="display: block; visibility: hidden;">
+                                        <div class="gform_page_fields tab">
+                                            <ul id="gform_fields_1_11" class="gform_fields top_label form_sublabel_above description_below">
+                                                         
+                                                <li id="field_1_35" class="gfield gfield_html gfield_html_formatted gfield_no_follows_desc field_sublabel_above field_description_below gfield_visibility_visible">(REMINDER: Make sure to make a report to NCMEC to have a missing poster made
+                                                    for him. There is a specialized link for social workers to send information
+                                                    about children in care at cmfc.missingkids.org)
+                                                </li>
+                                                <li id="field_1_65" class="gfield gfield_html gfield_html_formatted gfield_no_follows_desc field_sublabel_above field_description_below gfield_visibility_visible">Thank you, this concludes all of the information we need at this time. An email confirmation of this information will be emailed to you within a few minutes. If you need to change any information that was provided to DCF, please reference the record identifier number in your queries to us.
+                                                </li>
+                                                <li>
+
+                                                 You can contact DCF at: Kody Johnson, Runaway Youth Investigator, Kansas
+                                                 Department for Children and Families, Office: (785) 368-8119, Cell :
+                                                (785) 338-6941, email: Kody.Johnson@ks.gov
+                                                 </li>
+                                                <li>
+                                                  We will contact you if more information is required. </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+                </body>
+                <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAavS6wKsU1ktHDuBpDAoQPkjxZ0gn06fs&amp;libraries=places&amp;callback=initMap"></script> -->
+
+<script type="text/javascript">
+    $('#regForm').submit(function() {
+    
+    $('#tab11').css('visibility', 'visible');
+    $('#gif').css('visibility', 'visible');
+    
+});
+</script>
+
+<script>
+
+  function encodeImageFileAsURL(cb) {
+    return function(){
+        var file = this.files[0];
+        var reader  = new FileReader();
+        reader.onloadend = function () {
+            cb(reader.result);
+        }
+        reader.readAsDataURL(file);
+    }
+}
+
+$('#inputFileToLoad').change(encodeImageFileAsURL(function(base64Img){
+    $('.output')
+      .find('textarea')
+        .val(base64Img)
+        .end()
+      .find('a')
+        .attr('href', base64Img)
+        .text(base64Img)
+        .end()
+      .find('img')
+        .attr('src', base64Img);
+}));
+</script>
+<script>
+
+
+
+
+
+
+
+
+
+var placeSearch, autocomplete;
+var componentForm = {
+  street_number: 'long_name',
+  route: 'long_name',
+  locality: 'long_name',
+  administrative_area_level_1: 'long_name',
+  country: 'long_name',
+  postal_code: 'long_name'
+};
+
+function initAutocomplete() {
+
+  autocomplete = new google.maps.places.Autocomplete(
+    /** @type {!HTMLInputElement} */
+    (document.getElementById('autocomplete')), {
+      types: ['geocode']
+    });
+
+  autocomplete.addListener('place_changed', function() {
+    fillInAddress(autocomplete, "");
+  });
+}
+
+function fillInAddress(autocomplete, unique) {
+
+  var place = autocomplete.getPlace();
+  console.log(place);
+  
+  document.getElementById("latitude").value = place.geometry.location.lat();
+  document.getElementById("longitude").value = place.geometry.location.lng();
+
+
+ 
+  for (var component in componentForm) {
+    if (!!document.getElementById(component + unique)) {
+      document.getElementById(component + unique).value = '';
+      document.getElementById(component + unique).disabled = false;
+    }
+  }
+
+  for (var i = 0; i &lt; place.address_components.length; i++) {
+    var addressType = place.address_components[i].types[0];
+    if (componentForm[addressType] &amp;&amp; document.getElementById(addressType + unique)) {
+      var val = place.address_components[i][componentForm[addressType]];
+      document.getElementById(addressType + unique).value = val;
+    }
+  }
+}
+google.maps.event.addDomListener(window, "load", initAutocomplete);
+
+function geolocate() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geolocation = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      console.log(geolocation);
+      
+      var circle = new google.maps.Circle({
+        center: geolocation,
+        radius: position.coords.accuracy
+      });
+      autocomplete.setBounds(circle.getBounds());
+    });
+  }
+}
+
+
+
+
+document.getElementById('phone').addEventListener('input', function (e) {
+  var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+  e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+});
+
+document.getElementById('phone_format1').addEventListener('input', function (e) {
+  var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+  e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+});
+document.getElementById('phone_format2').addEventListener('input', function (e) {
+  var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+  e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+});
+document.getElementById('phone_format3').addEventListener('input', function (e) {
+  var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+  e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+});
+document.getElementById('phone_format4').addEventListener('input', function (e) {
+  var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+  e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+});
+document.getElementById('phone_format5').addEventListener('input', function (e) {
+  var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+  e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+});
+
+
+
+
+var input = document.querySelectorAll('.js-date')[0];
+  
+var dateInputMask = function dateInputMask(elm) {
+  elm.addEventListener('keypress', function(e) {
+    if(e.keyCode &lt; 47 || e.keyCode &gt; 57) {
+      e.preventDefault();
+    }
+    
+    var len = elm.value.length;
+    
+    // If we're at a particular place, let the user type the slash
+    // i.e., 12/12/1212
+    if(len !== 1 || len !== 3) {
+      if(e.keyCode == 47) {
+        e.preventDefault();
+      }
+    }
+    
+    // If they don't add the slash, do it for them...
+    if(len === 2) {
+      elm.value += '/';
+    }
+
+    // If they don't add the slash, do it for them...
+    if(len === 5) {
+      elm.value += '/';
+    }
+  });
+};
+  
+dateInputMask(input);
+
+
+var input = document.querySelectorAll('.js-date1')[0];
+  
+var dateInputMask1 = function dateInputMask(elm) {
+  elm.addEventListener('keypress', function(e) {
+    if(e.keyCode &lt; 47 || e.keyCode &gt; 57) {
+      e.preventDefault();
+    }
+    
+    var len = elm.value.length;
+    
+    // If we're at a particular place, let the user type the slash
+    // i.e., 12/12/1212
+    if(len !== 1 || len !== 3) {
+      if(e.keyCode == 47) {
+        e.preventDefault();
+      }
+    }
+    
+    // If they don't add the slash, do it for them...
+    if(len === 2) {
+      elm.value += '/';
+    }
+
+    // If they don't add the slash, do it for them...
+    if(len === 5) {
+      elm.value += '/';
+    }
+  });
+};
+  
+dateInputMask1(input);
+
+    </script>
+            </t>
+            <t t-if="result">
+                <div>
+                    Hello <t t-esc="m_name" /><p></p>
+
+                    Your Record has been saved successfully!
+                    <p></p>
+                Record Identifier of <t t-esc="f_name" /><t t-esc="l_name" /> is <t t-esc="name" />. The same will be sent to your email.
+               
+            </div>
+                <div>
+                    <!-- <center><a href="https://st-francis.online/welcome" style="-webkit-appearance: button;-moz-appearance: button;appearance: button;text-decoration: none;color: initial;margin-top:6rem;background-color:  green;color: white;padding: 14px;border-radius: 6px;" >Go to Home</a></center> -->
+                </div>
+            </t>
+        </t>
+    </template>
+    <template id="web.login2" name="Childsearch">
+        <style>
+            .form-control-child
+                {
+                box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+                    display: block;
+                    width: 50%;
+                    margin-bottom: 1%;
+                    margin-bottom: 1%;
+                    height: 34px;
+                    padding: 6px 12px;
+                    font-size: 14px;
+                    line-height: 1.42857143;
+                    color: #555555;
+                    background-color: #fff;
+                    background-image: none;
+                    border: 1px solid;
+                    border-radius: 4px;
+                    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                    <!-- transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; -->
+                }
+                .gtitle
+                {
+                    font-weight: 700;
+                    font-size: 1.25em;
+                     
+                    padding: 0!important;
+                    letter-spacing: normal!important;
+                    font-weight: 400;
+                    border: none;
+                    background: 0 0;
+                    margin-bottom:1%;
+                }
+        </style>
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <script type="text/javascript">
+           
+            $(document).ready(function(){
+            $("#edit_child").click(function(){
+            $(".form_edit_child").css("display", "block");
+            $("#edit_child").css("display", "none");
+            $("#cancel_edit_child").css("display", "block");
+        
+
+
+    });
+            $("#cancel_edit_child").click(function(){
+            $(".form_edit_child").css("display", "none");
+            $("#edit_child").css("display", "block");
+            $("#cancel_edit_child").css("display", "none");
+        
+
+
+        });
+    });     
+           
+   
+
+        </script>
+        <t t-call="web.login_layout">
+            <div class="panel panel-danger" style="border-style:none">
+                <!-- <div class="panel-heading">Child Search</div> -->
+                <div class="container" style="box-shadow:0 0 30px rgba(0,0,0,0.22);margin-top:2%;">
+                    <form id="myForm" style="padding-left:5%;padding-top:2%" role="form" t-attf-action="/web/search{{ '?debug' if debug else '' }}" method="post" onsubmit="this.action = this.action + location.hash">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="">Record Identifier</label>
+                                    <input type="text" class="form-control" id="pwd" placeholder="Record Identifier" t-att-value="name" required="required" name="name" />
+                                </div>
+                            </div>
+                        </div>
+                        <button type="Submit" class="btn btn-danger">Search</button>
+                        <button type="button" id="reset_value" class="btn btn-danger">Reset</button>
+                    </form>
+                </div>
+                <t t-if="status">
+                Record Has Been Updated Successfully
+             </t>
+                <t t-if="name">
+                    <div class="container hide_table" style="box-shadow:0 0 30px rgba(0,0,0,0.22);margin-top:2%;">
+                        <table class="table  table-border table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Record Identifier</th>
+                                    <th>Child name</th>
+                                    <th>Child DOB</th>
+                                    <th>Child Gender</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span t-esc="name" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="c_name" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="c_birth_date" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="child_gender" />
+                                    </td>
+                                    <td>
+                                        <button type="button" id="edit_child" class="btn btn-danger btn-xs fa fa-edit"></button>
+                                        <button type="button" id="cancel_edit_child" class="btn btn-danger btn-xs fa fa-close" style="display:none;"></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="container" style="box-shadow:0 0 30px rgba(0,0,0,0.22); margin-top:1.5%;">
+                        <form style="padding-left:5%;display:none" role="form" t-attf-action="/web/edit{{ '?debug' if debug else '' }}" method="post" onsubmit="validation();" class="form_edit_child">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                            <input type="hidden" name="name" t-att-value="name" id="name" class="form-control" required="required" />
+                            <input type="hidden" name="id" t-att-value="id" id="name" class="form-control" required="required" />
+                            <div class="panel panel-danger" style="margin-top:2%;">
+                                <div class="panel-heading">Case Manager Information</div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">Case Manager's Full Name</label>
+                                                <input type="text" class="form-control" id="email" t-att-value="m_name" placeholder="Full Name" name="m_name" />
+                                                <div id="m_name" class="valid"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="required">Case Manager's Phone Number</label>
+                                                <input type="text" class="form-control" id="phone_format" t-att-value="m_phone" placeholder="(___) ___-____" name="m_phone" />
+                                                <div id="m_phone" class="valid"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">Case Manager Email Address</label>
+                                                <input type="email" class="form-control" t-att-value="m_email" id="txtEmail" placeholder="Email Address" name="m_email" />
+                                                <div id="m_email" class="valid"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="required">Your Institution’s Name</label>
+                                                <input type="text" class="form-control" t-att-value="m_istitute" placeholder="Your Institution’s Name" name="m_istitute" />
+                                                <div id="m_istitute" class="valid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-danger ">
+                                <p style="font-size:20px;padding-top:4px;padding-bottom:4px;margin-left: 4px;">
+                Now, please be as through and accurate with the information you are providing regarding the runaway child.
+                </p>
+                                <div class="panel-heading">Child Information</div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">Child's First Name</label>
+                                                <input type="text" class="form-control" id="email" t-att-value="f_name" placeholder="First Name" name="f_name" />
+                                                <div id="f_name" class="valid"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">Child's Last Name</label>
+                                                <input type="text" class="form-control" id="pwd" t-att-value="l_name" placeholder="Last Name" name="l_name" />
+                                                <div id="l_name" class="valid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">Date of when child ran away from provider</label>
+                                                <input type="text" class="form-control " t-att-value="c_runaway_date" id="js-date" placeholder="MM/DD/YYYY" name="c_runaway_date" />
+                                                <div id="c_runaway_date" class="valid"></div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="col-md-6">
+        <div class="form-group">
+            <label class="required">Email Adress</label>
+            <input type="email" class="form-control" id="pwd" placeholder="Email Adress" name="e_address"/>
+            <div id ="e_address" class="valid"></div>  
+        </div> 
+      </div>-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">DOB of missing child</label>
+                                                <input id="datepicker" type="text" class="form-control" t-att-value="c_birth_date" name="c_birth_date" placeholder="MM/DD/YYYY" />
+                                                <div id="c_birth_date" class="valid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-danger ">
+                                <div class="panel-body">
+                                    <p style="font-size:20px;">Exact last known location of runaway child, please provide the exact address using this field</p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" t-att-value="c_run_child" class="form-control" id="pwd" placeholder="Exact last known location of runaway child" name="c_run_child" />
+                                                <div id="c_run_child" class="valid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="required">Street</label>
+                                                <input type="text" class="form-control" id="" placeholder="Street" t-att-value="c_r_street" name="c_r_street" />
+                                                <div id="c_r_street" class="valid"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="required">Address</label>
+                                                <input type="text" class="form-control" id="pwd" t-att-value="c_r_address" placeholder="Address" name="c_r_address" />
+                                                <div id="c_r_address" class="valid"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="required">City</label>
+                                                <input type="text" class="form-control" id="pwd" placeholder="City" t-att-value="c_r_city" name="c_r_city" />
+                                                <div id="c_r_city" class="valid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">State</label>
+                                                <input type="text" class="form-control" id="pwd" placeholder="State" t-att-value="c_r_country" name="c_r_country" />
+                                                <div id="c_r_country" class="valid"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">Zip</label>
+                                                <input type="number" class="form-control" t-att-value="c_r_zip" name="c_r_zip" placeholder="Zip" />
+                                                <div id="c_r_zip" class="valid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">Complete and thorough description of how the child became missing. Please provide exact details of circumstances (such ran away with a friend, etc.)</label>
+                                                <input class="form-control rounded-0" t-att-value="c_miss_reason" name="c_miss_reason" id="exampleFormControlTextarea2" rows="3"></input>
+                                                <div t-att-value="c_miss_reason" name="c_miss_reason" id="c_miss_reason" class="valid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="required">Is the child a Runaway child or an Exparte?</label>
+                                            <div class="form-group">
+                                                <label for="gender-male" class="radio-inline">
+                                                    <input type="radio" t-att-checked="'checked' if is_runaway == 'runway' else None" name="is_runaway" value="runway" />Runway Child</label>
+                                                <br />
+                                                <label for="gender-female" class="radio-inline">
+                                                    <input type="radio" t-att-checked="'checked' if is_runaway == 'exparte' else None" name="is_runaway" value="exparte" />Exparte Child</label>
+                                                <br />
+                                                <input name="is_runaway" type="radio" value="undefined" id="choice_1_15_2" onfocus="jQuery(this).next('input').focus();" />
+                                                <input id="input_1_15_other" name="is_runaway" type="text" placeholder="Other : (Please specify)" aria-label="Other" onfocus="jQuery(this).prev(&quot;input&quot;)[0].click(); if(jQuery(this).val() == &quot;Other&quot;) { jQuery(this).val(&quot;&quot;); }" onblur="if(jQuery(this).val().replace(&quot; &quot;, &quot;&quot;) == &quot;&quot;) { jQuery(this).val(&quot;Other&quot;); }" />
+                                            </div>
+                                            <div id="is_child_gang" class="valid"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">How many times has this child ran away</label>
+                                                <input type="number" t-att-value="c_run_count" class="form-control" id="pwd" placeholder="How many times has this child ran away" name="c_run_count" />
+                                                <div id="c_run_count" class="valid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">What is the specific length of stay at prior home in number of weeks</label>
+                                                <input type="number" class="form-control" placeholder="What is the specific length of stay at prior home in number of weeks" t-att-value="c_len_stay" name="c_len_stay" />
+                                                <div id="c_len_stay" class="valid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="required">Does the child have a Gang Affiliations?</label>
+                                            <div class="form-group">
+                                                <label for="gender-male" class="radio-inline">
+                                                    <input type="radio" t-att-checked="'checked' if is_child_gang == 'yes' else None" name="is_child_gang" value="yes" id="gender-male" />Yes</label>
+                                                <br />
+                                                <label for="gender-female" class="radio-inline">
+                                                    <input type="radio" t-att-checked="'checked' if is_child_gang == 'no' else None" name="is_child_gang" value="no" id="gender-female" />No</label>
+                                                <br />
+                                                <label class="radio-inline">
+                                                    <input type="radio" t-att-checked="'checked' if is_child_gang == 'dont' else None" name="is_child_gang" value="dont" id="gender-undefinis_child_ganged" />I do not know</label>
+                                                <br />
+                                            </div>
+                                            <div id="is_child_gang" class="valid"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="required">Do you have any concerns that the child may be in any way involved in human sex trafficking or prostitution?</label>
+                                            <div class="form-group">
+                                                <label for="gender-male" class="radio-inline">
+                                                    <input type="radio" name="is_child_harr" t-att-checked="'checked' if is_child_harr == 'yes' else None" value="yes" />Yes</label>
+                                                <br />
+                                                <label for="gender-female" class="radio-inline">
+                                                    <input type="radio" name="is_child_harr" t-att-checked="'checked' if is_child_harr == 'no' else None" value="no" />No</label>
+                                                <br />
+                                                <label class="radio-inline">
+                                                    <input type="radio" t-att-checked="'checked' if is_child_harr == 'dont' else None" name="is_child_harr" value="dont" />I do not know</label>
+                                                <br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-danger ">
+                                <p style="font-size:20px;padding-top:4px;padding-bottom:4px;margin-left: 4px;">Investigators find social media information very valuable in finding a child. Please input all known social media accounts and username for the missing child.</p>
+                                <div class="panel-heading">Social Media Data</div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="required">Facebook Username</label>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" t-att-value="c_facbook" name="c_facbook" placeholder="Facebook Username 1" />
+                                                        <div id="" class="valid"></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" t-att-value="c_facbook2" name="c_facbook2" placeholder="Facebook Username 2" />
+                                                        <div id="" class="valid"></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" t-att-value="c_facbook3" name="c_facbook3" placeholder="Facebook Username 3" />
+                                                        <div id="" class="valid"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="required">Snapchat Username</label>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" t-att-value="c_snap" name="c_snap" placeholder="Snapchat Username 1" />
+                                                        <div id="" class="valid"></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" t-att-value="c_snap2" name="c_snap2" placeholder="Snapchat Username 2" />
+                                                        <div id="" class="valid"></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" t-att-value="c_snap3" name="c_snap3" placeholder="Snapchat Username 3" />
+                                                        <div id="" class="valid"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="required">Instagram Username</label>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" t-att-value="c_instagram" name="c_instagram" placeholder="Instagram Username 1" />
+                                                        <div id="" class="valid"></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" t-att-value="c_instagram2" name="c_instagram2" placeholder="Instagram Username 2" />
+                                                        <div id="" class="valid"></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" t-att-value="c_instagram3" name="c_instagram3" placeholder="Instagram Username 3" />
+                                                        <div id="" class="valid"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="required">Phone Numbers</label>
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <input type="text" id="phone_format1" class="form-control" t-att-value="c_phone" name="c_phone" placeholder="(___) ___-____" />
+                                                        <div id="" class="valid"></div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <input type="text" id="phone_format2" class="form-control" t-att-value="c_phone_2" name="c_phone_2" placeholder="(___) ___-____" />
+                                                        <div id="" class="valid"></div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <input type="text" id="phone_format3" class="form-control" t-att-value="c_phone_3" name="c_phone_3" placeholder="(___) ___-____" />
+                                                        <div id="" class="valid"></div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <input type="text" id="phone_format4" class="form-control" t-att-value="c_phone_4" name="c_phone_4" placeholder="(___) ___-____" />
+                                                        <div id="" class="valid"></div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <input type="text" id="phone_format5" class="form-control" t-att-value="c_phone_5" name="c_phone_5" placeholder="(___) ___-____" />
+                                                        <div id="" class="valid"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="required">Gender</label>
+                                            <div class="form-group">
+                                                <label for="gender-male" class="radio-inline">
+                                                    <input type="radio" name="child_gender" t-att-checked="'checked' if child_gender == 'male' else None" value="male" id="gender-male" />Male</label>
+                                                <br />
+                                                <label for="gender-female" t-att-checked="'checked' if child_gender == 'female' else None" class="radio-inline">
+                                                    <input type="radio" name="child_gender" value="female" id="gender-female" />Female</label>
+                                                <br />
+                                                <label class="radio-inline">
+                                                    <input type="radio" t-att-checked="'checked' if child_gender == 'undefined' else None" name="child_gender" value="undefined" id="gender-undefined" />Undefined</label>
+                                                <br />
+                                                <div id="child_gender" class="valid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="required">Ethnicity</label>
+                                            <div class="form-group">
+                                                <div class="col-sm-2">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="child_ethincity" t-att-checked="'checked' if child_ethincity == 'Asian' else None" value="Asian" />Asian</label>
+                                                    <br />
+                                                    <label class="radio-inline">
+                                                        <input type="radio" t-att-checked="'checked' if child_ethincity == 'White' else None" name="child_ethincity" value="White" />White</label>
+                                                    <br />
+                                                    <label class="radio-inline">
+                                                        <input type="radio" t-att-checked="'checked' if child_ethincity == 'Black_African_American' else None" name="child_ethincity" value="Black_African_American" />Black or African American</label>
+                                                    <br />
+                                                    <label class="radio-inline">
+                                                        <input type="radio" t-att-checked="'checked' if child_ethincity == 'Pacific_Islander' else None" name="child_ethincity" value="Pacific_Islander" />Pacific Islander</label>
+                                                    <br />
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" t-att-checked="'checked' if child_ethincity == 'American_Indian' else None" name="child_ethincity" value="American_Indian" />American Indian</label>
+                                                    <br />
+                                                    <label class="radio-inline">
+                                                        <input type="radio" t-att-checked="'checked' if child_ethincity == 'Hispanic_or_Latino' else None" name="child_ethincity" value="Hispanic_or_Latino" />Hispanic or Latino</label>
+                                                    <br />
+                                                    <label class="radio-inline">
+                                                        <input type="radio" t-att-checked="'checked' if child_ethincity == 'Some_other_race' else None" name="child_ethincity" value="Some_other_race" />Some other race</label>
+                                                    <br />
+                                                    <label class="radio-inline">
+                                                        <input type="radio" t-att-checked="'checked' if child_ethincity == 'dontknow' else None" name="child_ethincity" value="dontknow" />I do not know</label>
+                                                    <br />
+                                                </div>
+                                                <div id="child_ethincity" class="valid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-danger ">
+                                <div class="panel-heading">Child Runaway Behavioral Data</div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">What is the specific Police Report Number for the child</label>
+                                                <input type="number" t-att-value="c_police_report_no" class="form-control" id="pwd" placeholder="What is the specific Police Report Number for the child" name="c_police_report_no" />
+                                                <div id="c_police_report_no" class="valid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">Who is the law enforcement contact and agency</label>
+                                                <input type="text" t-att-value="c_contact_agency" class="form-control" id="pwd" placeholder="Who is the law enforcement contact and agency" name="c_contact_agency" />
+                                                <div id="c_contact_agency" class="valid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="required">Does the child have any disabilities?</label>
+                                            <div class="form-group">
+                                                <label for="gender-male" class="radio-inline">
+                                                    <input type="radio" t-att-checked="'checked' if is_child_dis == 'yes' else None" name="is_child_dis" value="yes" />Yes</label>
+                                                <br />
+                                                <label for="gender-female" class="radio-inline">
+                                                    <input type="radio" t-att-checked="'checked' if is_child_dis == 'no' else None" name="is_child_dis" value="no" id="gender-female" />No</label>
+                                                <br />
+                                                <label class="radio-inline">
+                                                    <input type="radio" t-att-checked="'checked' if is_child_dis == 'dont' else None" name="is_child_dis" value="dont" id="gender-undefined" />I do not know</label>
+                                                <br />
+                                                <div id="is_child_dis" class="valid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">What are the child’s medical issues, if any</label>
+                                                <input type="text" t-att-value="c_medical_issue" class="form-control" id="pwd" placeholder="What is the specific length of stay at prior home in number of weeks" name="c_medical_issue" />
+                                                <div id="c_medical_issue" class="valid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">What is the list of the child’s medications, if any</label>
+                                                <input type="text" t-att-value="c_medication" class="form-control" id="pwd" name="c_medication" placeholder="What is the list of the child’s medications, if any" />
+                                                <div id="child_medical" class="valid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">What are the child’s emotional and mental problems, if any</label>
+                                                <input type="text" class="form-control" id="pwd" placeholder="What are the child’s emotional and mental problems, if any" name="c_mental_issue" t-att-value="c_mental_issue" />
+                                                <div id="c_mental_issue" class="valid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="required">Are there any court orders for the child (ie. No run orders/house arrest/probation): </label>
+                                            <div class="form-group">
+                                                <label for="gender-male" class="radio-inline">
+                                                    <input type="radio" t-att-checked="'checked' if is_child_court_order == 'yes' else None" name="is_child_court_order" value="yes" id="gender-male" />Yes</label>
+                                                <br />
+                                                <label for="gender-female" class="radio-inline">
+                                                    <input type="radio" t-att-checked="'checked' if is_child_court_order == 'no' else None" name="is_child_court_order" value="no" id="gender-female" />No</label>
+                                                <br />
+                                                <label class="radio-inline">
+                                                    <input type="radio" t-att-checked="'checked' if is_child_court_order == 'dont' else None" name="is_child_court_order" value="dont" id="gender-undefinis_child_ganged" />I do not know</label>
+                                            </div>
+                                            <div id="is_child_court_order" class="valid"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-danger " style="margin-top:-22px;">
+                                <div class="panel-heading">Missing Child Image Upload</div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">Missing Child Image</label>
+                                                <!-- <input type='file' class="form-control" id="inputFile" /> -->
+                                                <input class="button gform_button_select_files" id="inputFileToLoad" type="file" onchange="encodeImageFileAsURL();" name="c_poto_ids" />
+                                            </div>
+                                            <div class="output">
+                                                <textarea name="c_photo_binary" style="display:none;" class="form-control"></textarea>
+                                                <a style="display:none;"></a>
+                                                <img style="display:none;"></img>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div id="dvPreview"></div>
+                                            <!-- <img id="image_upload_preview" height="100" width="100" src="http://placehold.it/100x100" alt="your image" /> -->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">Please provide DCF any advice, leads, or information on how we might be able to find the runway child</label>
+                                                <input type="text" class="form-control" id="pwd" placeholder="Please provide DCF any advice, leads, or information" t-att-value="advice" name="advice" />
+                                                <div id="advice" class="valid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-danger ">
+                                <div class="panel-heading">Reported to NCMEC</div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="required">Has the child been reported to the NCMEC (not the NCIC)</label>
+                                            <div class="form-group">
+                                                <label for="gender-male" class="radio-inline">
+                                                    <input type="radio" t-att-checked="'checked' if is_child_report == 'yes' else None" name="is_child_report" value="yes" id="gender-male" />Yes</label>
+                                                <br />
+                                                <label for="gender-female" class="radio-inline">
+                                                    <input type="radio" t-att-checked="'checked' if is_child_report == 'no' else None" name="is_child_report" value="no" id="gender-female" />No</label>
+                                                <br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <input type ="submit"id='btnValidate' value="submit"class="btn btn-primary" /> -->
+                            <div id="snackbar">
+                                <div id="show"></div>
+                            </div>
+                            <center>
+                                <button type="submit" style="font-size:22px;border-radius:11px;" id="btnValidate" class="btn btn-danger">Submit</button>
+                            </center>
+                        </form>
+                    </div>
+                </t>
+            </div>
+            <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+            <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script src="js/index.js"></script>
+            <script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+            <script>
+    function encodeImageFileAsURL(cb) {
+    return function(){
+        var file = this.files[0];
+        var reader  = new FileReader();
+        reader.onloadend = function () {
+            cb(reader.result);
+        }
+        reader.readAsDataURL(file);
+    }
+}
+
+$('#inputFileToLoad').change(encodeImageFileAsURL(function(base64Img){
+    $('.output')
+      .find('textarea')
+        .val(base64Img)
+        .end()
+      .find('a')
+        .attr('href', base64Img)
+        .text(base64Img)
+        .end()
+      .find('img')
+        .attr('src', base64Img);
+}));
+</script>
+            <script>
+    $("#reset_value").bind("click", function() {
+    $("#pwd").val("");
+    $(".form_edit_child").css("display", "none");
+    $(".hide_table").hide();
+    });
+</script>
+            <script language="javascript" type="text/javascript">
+
+    $(document).keypress(
+    function(event){
+     if (event.which == '13') {
+        event.preventDefault();
+      }
+
+
+});
+
+
+  document.getElementById('phone_format').addEventListener('input', function (e) {
+  console.log("test")
+  var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+  e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+});
+
+document.getElementById('phone_format1').addEventListener('input', function (e) {
+  console.log("test")
+  var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+  e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+});
+document.getElementById('phone_format2').addEventListener('input', function (e) {
+  console.log("test")
+  var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+  e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+});
+document.getElementById('phone_format3').addEventListener('input', function (e) {
+  console.log("test")
+  var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+  e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+});
+document.getElementById('phone_format4').addEventListener('input', function (e) {
+  console.log("test")
+  var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+  e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+});
+document.getElementById('phone_format5').addEventListener('input', function (e) {
+  console.log("test")
+  var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+  e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+});
+
+
+
+
+  </script>
+            <script language="javascript" type="text/javascript">
+$(function () {
+    $("#fileupload").change(function () {
+        if (typeof (FileReader) != "undefined") {
+            var dvPreview = $("#dvPreview");
+            dvPreview.html("");
+            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+            $($(this)[0].files).each(function () {
+                var file = $(this);
+                if (regex.test(file[0].name.toLowerCase())) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        var img = $("<img />");
+                        img.attr("id", "image_upload_preview");
+                        img.attr("style", "height:100px;width: 100px");
+                        img.attr("src", e.target.result);
+                        dvPreview.append(img);
+                    }
+                    reader.readAsDataURL(file[0]);
+                } else {
+                    alert(file[0].name + " is not a valid image file.");
+                    dvPreview.html("");
+                    return false;
+                }
+            });
+        } else {
+            alert("This browser does not support HTML5 FileReader.");
+        }
+    });
+});
+</script>
+            <script>
+  
+        $( function() {
+          $( "#datepicker" ).datepicker();
+        } );
+        $( function() {
+          $( "#datepicker" ).datepicker();
+        } );
+
+
+
+
+    <!-- function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#image_upload_preview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    } -->
+
+    $("#inputFile").change(function () {
+        readURL(this);
+    });
+
+$(document).ready(function(e) {
+    
+    $('#btnValidate').click(function(e) {
+       
+        var username = $('form[name="myform"] input[name="m_email"]').val();
+    
+
+ var sEmail = $('#txtEmail').val();
+        if ($.trim(sEmail).length == 0) {
+            $('#m_email').text('Please enter valid email address');
+            $('#m_email').delay(1000).fadeOut(10000); 
+            e.preventDefault();
+    //          var x = document.getElementById("snackbar");
+    // x.className = "show";
+    // setTimeout(function(){
+    // x.className = x.className.replace("show", "Please enter valid email address");
+    // document.getElementById("show").innerHTML = "Please enter valid email address";
+    // e.preventDefault();
+    // }, 3000);
+           
+        }
+       
+        else {
+    //         var x = document.getElementById("snackbar");
+    // x.className = "show";
+    // setTimeout(function(){
+    // x.className = x.className.replace("show", "");
+    // document.getElementById("show").innerHTML = "Invalid Email Address";
+    // }, 3000);
+            $('#m_email').text('Invalid Email Address');
+            $('#m_email').delay(1000).fadeOut(10000); 
+            e.preventDefault();
+        }
+
+
+
+//         if ( username == '') {
+//             e.preventDefault();
+//             //             var x = document.getElementById("snackbar");
+// //     x.className = "show";
+// //     setTimeout(function(){
+// //     x.className = x.className.replace("show", "");
+// //     document.getElementById("show").innerHTML = "Invalid Email Address";
+// //     }, 3000);
+//           $('#m_email').text('Please enter a EmailID');
+//             $('#m_email').delay(1000).fadeOut(10000); 
+//         }
+
+        var fullName = $('form[name="myform"] input[name="m_name"]').val();
+        if ( fullName == '') {
+            e.preventDefault();
+            $('#m_name').append('Please enter a fullName');
+            $('#m_name').delay(1000).fadeOut(10000); 
+        }
+
+var InstitutionName = $('form[name="myform"] input[name="m_istitute"]').val();
+        if ( InstitutionName == '') {
+            e.preventDefault();
+            $('#m_istitute').text('Please enter a  Institution’s Name');
+            $('#m_istitute').delay(1000).fadeOut(10000); 
+        }
+        
+        var PhoneNumber = $('form[name="myform"] input[name="m_phone"]').val();
+        if ( PhoneNumber == '') {
+            e.preventDefault();
+            $('#m_phone').text('Please enter a  Institution’s Name');
+            $('#m_phone').delay(1000).fadeOut(10000); 
+        }
+
+        var f_name = $('form[name="myform"] input[name="f_name"]').val();
+        if ( f_name == '') {
+            e.preventDefault();
+            $('#f_name').text('Please enter a First Name');
+            $('#f_name').delay(1000).fadeOut(10000); 
+        }
+        var child_medical = $('form[name="myform"] input[name="child_medical"]').val();
+        if ( child_medical == '') {
+            e.preventDefault();
+            $('#child_medical').text('What is the list of the child’s medications');
+            $('#child_medical').delay(1000).fadeOut(10000); 
+        }
+        var c_mental_issue = $('form[name="myform"] input[name="c_mental_issue"]').val();
+        if ( c_mental_issue == '') {
+            e.preventDefault();
+            $('#c_mental_issue').text('What are the child’s emotional and mental problems');
+            $('#c_mental_issue').delay(1000).fadeOut(10000); 
+        }
+        var l_name = $('form[name="myform"] input[name="l_name"]').val();
+        if ( l_name == '') {
+            e.preventDefault();
+            $('#l_name').text('Please enter a last Name');
+            $('#l_name').delay(1000).fadeOut(10000); 
+        }
+        var emailAdress = $('form[name="myform"] input[name="e_address"]').val();
+        if ( emailAdress == '') {
+            e.preventDefault();
+            $('#e_address').text('Please enter a Email Adress');
+            $('#e_address').delay(1000).fadeOut(10000); 
+        }
+        var DOB = $('form[name="myform"] input[name="c_birth_date"]').val();
+        if ( DOB == '') {
+            e.preventDefault();
+            $('#c_birth_date').text('Please enter a DOB');
+            $('#c_birth_date').delay(1000).fadeOut(10000); 
+        }
+
+        var Gender = $('form[name="myform"] input[name="child_gender"]').val();
+        if ( Gender == '') {
+            e.preventDefault();
+            $('#child_gender').text('Please enter a DOB');
+            $('#child_gender').delay(1000).fadeOut(10000); 
+        }
+        var child_ethincity = $('form[name="myform"] input[name="child_ethincity"]').val();
+        if ( child_ethincity == '') {
+            e.preventDefault();
+            $('#childchild_ethincity_gender').text('Please enter a DOB');
+            $('#child_ethincity').delay(1000).fadeOut(10000); 
+        }
+        var fa_name = $('form[name="myform"] input[name="fa_name"]').val();
+        if ( fa_name == '') {
+            e.preventDefault();
+            $('#fa_name').text('Please enter a Facebook Username');
+            $('#fa_name').delay(1000).fadeOut(10000); 
+        }
+        var in_name = $('form[name="myform"] input[name="in_name"]').val();
+        if ( in_name == '') {
+            e.preventDefault();
+            $('#in_name').text('Please enter a Instagram Username');
+            $('#in_name').delay(1000).fadeOut(10000); 
+        }
+        var sn_name = $('form[name="myform"] input[name="in_name"]').val();
+        if ( sn_name == '') {
+            e.preventDefault();
+            $('#sn_name').text('Please enter a Snapchat Username');
+            $('#sn_name').delay(1000).fadeOut(10000); 
+        }
+        var is_child_gang = $('form[name="myform"] input[name="is_child_gang"]').val();
+        if ( is_child_gang == '') {
+            e.preventDefault();
+            $('#is_child_gang').text('Does the child have a Gang Affiliations');
+            $('#is_child_gang').delay(1000).fadeOut(10000); 
+        }
+        var is_child_dis = $('form[name="myform"] input[name="is_child_dis"]').val();
+        if ( is_child_dis == '') {
+            e.preventDefault();
+            $('#is_child_dis').text('Does the child have a Gang Affiliations');
+            $('#is_child_dis').delay(1000).fadeOut(10000); 
+        }
+        var c_len_stay = $('form[name="myform"] input[name="c_len_stay"]').val();
+        if ( c_len_stay == '') {
+            e.preventDefault();
+            $('#c_len_stay').text('What is the specific length of stay at prior home in number of weeks');
+            $('#c_len_stay').delay(1000).fadeOut(10000); 
+        }
+        var c_runaway_date = $('form[name="myform"] input[name="c_runaway_date"]').val();
+        if ( c_runaway_date == '') {
+            e.preventDefault();
+            $('#c_runaway_date').text('Date of when child ran away from provider');
+            $('#c_runaway_date').delay(1000).fadeOut(10000); 
+        }
+        
+        var c_police_report_no = $('form[name="myform"] input[name="c_police_report_no"]').val();
+        if ( c_police_report_no == '') {
+            e.preventDefault();
+            $('#c_police_report_no').text('Please Enter Police Report Number');
+            $('#c_police_report_no').delay(1000).fadeOut(10000); 
+        }
+        var c_miss_reason = $('form[name="myform"] input[name="c_miss_reason"]').val();
+        if ( c_miss_reason == '') {
+            e.preventDefault();
+            $('#c_miss_reason').text('Please provide exact details of circumstances');
+            $('#c_miss_reason').delay(1000).fadeOut(10000); 
+        }
+        var c_run_child = $('form[name="myform"] input[name="c_run_child"]').val();
+        if ( c_run_child == '') {
+            e.preventDefault();
+            $('#c_run_child').text('Exact last known location of runaway child');
+            $('#c_run_child').delay(1000).fadeOut(10000); 
+        }
+         var c_contact_agency = $('form[name="myform"] input[name="c_contact_agency"]').val();
+        if ( c_contact_agency == '') {
+            e.preventDefault();
+            $('#c_contact_agency').text('Who is the law enforcement contact and agency');
+            $('#c_contact_agency').delay(1000).fadeOut(10000); 
+        }
+        var c_medical_issue = $('form[name="myform"] input[name="c_medical_issue"]').val();
+        if ( c_medical_issue == '') {
+            e.preventDefault();
+            $('#c_medical_issue').text('What is the specific length of stay at prior home in number of weeks');
+            $('#c_medical_issue').delay(1000).fadeOut(10000); 
+        }
+        
+        var c_run_count = $('form[name="myform"] input[name="c_run_count"]').val();
+        if ( c_run_count == '') {
+            e.preventDefault();
+            $('#c_run_count').text('Please Enter the Count');
+            $('#c_run_count').delay(1000).fadeOut(10000); 
+        }
+        var c_advice = $('form[name="myform"] input[name="c_advice"]').val();
+        if ( c_advice == '') {
+            e.preventDefault();
+            $('#c_advice').text('Please provide DCF any advice, leads, or information');
+            $('#c_advice').delay(1000).fadeOut(10000); 
+        }
+        var c_r_street = $('form[name="myform"] input[name="c_r_street"]').val();
+        if ( c_r_street == '') {
+            e.preventDefault();
+            $('#c_r_street').text('Please Enter a Street');
+            $('#c_r_street').delay(1000).fadeOut(10000); 
+        }
+
+         var c_r_address = $('form[name="myform"] input[name="c_r_address"]').val();
+        if ( c_r_address == '') {
+            e.preventDefault();
+            $('#c_r_address').text('Please Enter a Address');
+            $('#c_r_address').delay(1000).fadeOut(10000); 
+        }
+
+         var c_r_city = $('form[name="myform"] input[name="c_r_city"]').val();
+        if ( c_r_city == '') {
+            e.preventDefault();
+            $('#c_r_city').text('Please Enter a City');
+            $('#c_r_city').delay(1000).fadeOut(10000); 
+        }
+        var c_r_zip = $('form[name="myform"] input[name="c_r_zip"]').val();
+        if ( c_r_zip == '') {
+            e.preventDefault();
+            $('#c_r_zip').text('Please Enter a Zip Code');
+            $('#c_r_zip').delay(1000).fadeOut(10000); 
+        }
+
+         var c_r_country = $('form[name="myform"] input[name="c_r_country"]').val();
+        if ( c_r_country == '') {
+            e.preventDefault();
+            $('#c_r_country').text('Please Enter a Country');
+            $('#c_r_country').delay(1000).fadeOut(10000); 
+        }
+        // var c_r_zip = $('form[name="myform"] input[name="c_r_zip"]').val();
+        // if ( c_r_zip == '') {
+        //     e.preventDefault();
+        //     $('#c_r_zip').appendTo('Please Enter a Zip Code');
+        //     $('#c_r_zip').delay(1000).fadeOut(10000); 
+        // }
+
+    });
+});
+
+
+
+        </script>
+        </t>
+    </template>
+    <template id="return_report" name="Return">
+        <style>
+      .form-control-child
+        {
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+            display: block;
+            width: 50%;
+            margin-bottom: 1%;
+            margin-bottom: 1%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    <!-- transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; -->
+        }
+      .gtitle
+        {
+          font-weight: 700;
+          font-size: 1.25em;
+          padding: 0!important;
+          letter-spacing: normal!important;
+          font-weight: 400;
+          border: none;
+          background: 0 0;
+          margin-bottom:1%;
+        }
+    </style>
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <script type="text/javascript">
+           
+        $(document).ready(function(){
+        $("#edit_child").click(function(){
+        $(".form_edit_child").css("display", "block");
+        $("#edit_child").css("display", "none");
+        $("#cancel_edit_child").css("display", "block");
+        });
+        $("#cancel_edit_child").click(function(){
+        $(".form_edit_child").css("display", "none");
+        $("#edit_child").css("display", "block");
+        $("#cancel_edit_child").css("display", "none");
+        });
+    });       
+    </script>
+        <t t-call="web.login_layout">
+            <div style="font-family:'Muli', sans-serif">
+                <center>
+                    <h2>Return Report</h2>
+                </center>
+                <p style="color:red; margin-left:5rem;margin-right:5rem; text-align:center; font-style:italic;">Please enter the Record Identifier of the returned child and DCF will be notified of the child’s return to the foster home. You will also be provided an email summary of the case.</p>
+                <p style="color:red; margin-left:5rem;margin-right:5rem; text-align:center;">You will also be provided an email summary of the case.</p>
+            </div>
+            <div class="panel panel-danger" style="border-style:none">
+                <!-- <div class="panel-heading">Child Search</div> -->
+                <div class="container" style="box-shadow:0 0 30px rgba(0,0,0,0.22);margin-top:2%;">
+                    <form id="myForm" style="padding-left:5%;padding-top:2%" role="form" t-attf-action="/return_search{{ '?debug' if debug else '' }}" method="post" onsubmit="this.action = this.action + location.hash">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="">Record Identifier</label>
+                                    <input type="text" class="form-control" id="pwd" placeholder="Record Identifier" t-att-value="name" required="required" name="name" />
+                                </div>
+                            </div>
+                        </div>
+                        <button type="Submit" class="btn btn-danger">Search</button>
+                        <button type="button" id="reset_value" class="btn btn-danger">Reset</button>
+                    </form>
+                </div>
+                <t t-if="status">
+                Record Has Been Updated Successfully
+             </t>
+                <t t-if="name">
+                    <!-- <hr style="border-top: 1px solid #ff2323;"/> -->
+                    <div class="container hide_table" style="box-shadow:0 0 30px rgba(0,0,0,0.22);margin-top:2%;">
+                        <table class="table  table-border table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Record Identifier</th>
+                                    <th>Child name</th>
+                                    <th>Child's First Name</th>
+                                    <th>Child's Last Name</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span t-esc="name" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="c_name" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="f_name" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="l_name" />
+                                    </td>
+                                    <td>
+                                        <button type="button" id="edit_child" class="btn btn-danger btn-xs fa fa-edit"></button>
+                                        <button type="button" id="cancel_edit_child" class="btn btn-danger btn-xs fa fa-close" style="display:none;"></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="container" style="box-shadow:0 0 30px rgba(0,0,0,0.22); margin-top:1.5%;">
+                        <form style="padding-left:5%;display:none" role="form" t-attf-action="/web/return_edit{{ '?debug' if debug else '' }}" method="post" onsubmit="validation();" class="form_edit_child">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                            <input type="hidden" name="name" t-att-value="name" id="name" class="form-control" required="required" />
+                            <input type="hidden" name="id" t-att-value="id" id="name" class="form-control" required="required" />
+                            <h4>Child Return Information</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="required">Child Return Date</label>
+                                        <input type="text" class="form-control js-date" t-att-value="child_return_date" placeholder="MM/DD/YYYY" name="child_return_date" />
+                                    </div>
+                                    <div class="form-group"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="required">Comments</label>
+                                        <input type="text" class="form-control" t-att-value="comments" name="comments" />
+                                    </div>
+                                    <div class="form-group"></div>
+                                </div>
+                            </div>
+                            <div id="snackbar">
+                                <div id="show"></div>
+                            </div>
+                            <center>
+                                <button type="submit" style="font-size:22px;border-radius:11px;" id="btnValidate" class="btn btn-danger">Submit</button>
+                            </center>
+                        </form>
+                    </div>
+                </t>
+            </div>
+            <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+            <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script src="js/index.js"></script>
+            <script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+            <script>
+    $("#reset_value").bind("click", function() {
+    $("#pwd").val("");
+    $(".form_edit_child").css("display", "none");
+    $(".hide_table").hide();
+    });
+</script>
+            <script language="javascript" type="text/javascript">
+
+
+    var input = document.querySelectorAll('.js-date')[0];
+  
+    var dateInputMask = function dateInputMask(elm) {
+    elm.addEventListener('keypress', function(e) {
+    if(e.keyCode &lt; 47 || e.keyCode &gt; 57) {
+      e.preventDefault();
+    }
+    
+    var len = elm.value.length;
+    
+    // If we're at a particular place, let the user type the slash
+    // i.e., 12/12/1212
+    if(len !== 1 || len !== 3) {
+      if(e.keyCode == 47) {
+        e.preventDefault();
+      }
+    }
+    
+    // If they don't add the slash, do it for them...
+    if(len === 2) {
+      elm.value += '/';
+    }
+
+    // If they don't add the slash, do it for them...
+    if(len === 5) {
+      elm.value += '/';
+    }
+  });
+};
+  
+  dateInputMask(input);
+
+
+
+    $(document).keypress(
+    function(event){
+     if (event.which == '13') {
+        event.preventDefault();
+      }
+
+
+});
+
+
+
+               
+</script>
+        </t>
+    </template>
+</dcf>
